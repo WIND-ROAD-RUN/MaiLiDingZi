@@ -11,7 +11,7 @@ bool ConfigManagerModule::build()
 	auto loadMainWindowConfig = storeContext->loadSafe(globalPath.maiLiDingZiConfigPath.toStdString());
 	if (loadMainWindowConfig)
 	{
-		qiXinShiJinShuangXiangJiConfig = *loadMainWindowConfig;
+		maiLiDingZiConfig = *loadMainWindowConfig;
 	}
 #pragma endregion
 
@@ -36,7 +36,7 @@ bool ConfigManagerModule::build()
 
 void ConfigManagerModule::destroy()
 {
-	storeContext->saveSafe(qiXinShiJinShuangXiangJiConfig, globalPath.maiLiDingZiConfigPath.toStdString());
+	storeContext->saveSafe(maiLiDingZiConfig, globalPath.maiLiDingZiConfigPath.toStdString());
 	storeContext->saveSafe(setConfig, globalPath.setConfigPath.toStdString());
 	storeContext->saveSafe(scoreConfig, globalPath.scoreConfigPath.toStdString());
 	storeContext.reset();

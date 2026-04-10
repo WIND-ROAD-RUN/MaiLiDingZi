@@ -5,7 +5,7 @@
 #include "oso_StorageContext.hpp"
 #include "SetConfig.hpp"
 #include "ScoreConfig.hpp"
-#include "QiXinShiJinShuangXiangJi.hpp"
+#include "MaiLiDingZi.hpp"
 
 class ConfigManagerModule
 	: public QObject, public IModule<bool>
@@ -19,7 +19,7 @@ public:
 public:
 	std::unique_ptr<rw::oso::StorageContext> storeContext{ nullptr };
 public:
-	cdm::QiXinShiJinShuangXiangJiConfig qiXinShiJinShuangXiangJiConfig{};
+	cdm::MaiLiDingZiConfig maiLiDingZiConfig{};
 	cdm::SetConfig setConfig{};
 	cdm::ScoreConfig scoreConfig{};
 };

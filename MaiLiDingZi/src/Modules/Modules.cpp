@@ -5,7 +5,7 @@
 
 #include "DlgProductSet.h"
 #include "MaiLiDingZi.h"
-#include "QiXinShiJinShuangXiangJi.hpp"
+#include "MaiLiDingZi.hpp"
 #include "rqw_RunEnvCheck.hpp"
 #include "SetConfig.hpp"
 #include "Utilty.hpp"
@@ -217,7 +217,7 @@ bool Modules::check()
 #pragma region check config format and exist
 	rw::oso::StorageContext storageContext(rw::oso::StorageType::Xml);
 
-	checkFileExistAndFormat<cdm::QiXinShiJinShuangXiangJiConfig>(globalPath.maiLiDingZiConfigPath, storageContext);
+	checkFileExistAndFormat<cdm::MaiLiDingZiConfig>(globalPath.maiLiDingZiConfigPath, storageContext);
 	checkFileExistAndFormat<cdm::SetConfig>(globalPath.setConfigPath, storageContext);
 	checkFileExistAndFormat<cdm::ScoreConfig>(globalPath.scoreConfigPath, storageContext);
 #pragma endregion

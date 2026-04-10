@@ -4,19 +4,19 @@
 #include <string>
 
 namespace cdm {
-    class QiXinShiJinShuangXiangJiConfig
+    class MaiLiDingZiConfig
     {
     public:
-        QiXinShiJinShuangXiangJiConfig() = default;
-        ~QiXinShiJinShuangXiangJiConfig() = default;
+        MaiLiDingZiConfig() = default;
+        ~MaiLiDingZiConfig() = default;
 
-        QiXinShiJinShuangXiangJiConfig(const rw::oso::ObjectStoreAssembly& assembly);
-        QiXinShiJinShuangXiangJiConfig(const QiXinShiJinShuangXiangJiConfig& obj);
+        MaiLiDingZiConfig(const rw::oso::ObjectStoreAssembly& assembly);
+        MaiLiDingZiConfig(const MaiLiDingZiConfig& obj);
 
-        QiXinShiJinShuangXiangJiConfig& operator=(const QiXinShiJinShuangXiangJiConfig& obj);
+        MaiLiDingZiConfig& operator=(const MaiLiDingZiConfig& obj);
         operator rw::oso::ObjectStoreAssembly() const;
-        bool operator==(const QiXinShiJinShuangXiangJiConfig& obj) const;
-        bool operator!=(const QiXinShiJinShuangXiangJiConfig& obj) const;
+        bool operator==(const MaiLiDingZiConfig& obj) const;
+        bool operator!=(const MaiLiDingZiConfig& obj) const;
 
     public:
         int totalProductionVolume{ 0 };
@@ -27,12 +27,12 @@ namespace cdm {
         bool iswenzi{ true };
     };
 
-    inline QiXinShiJinShuangXiangJiConfig::QiXinShiJinShuangXiangJiConfig(const rw::oso::ObjectStoreAssembly& assembly)
+    inline MaiLiDingZiConfig::MaiLiDingZiConfig(const rw::oso::ObjectStoreAssembly& assembly)
     {
         auto isAccountAssembly = assembly.getName();
-        if (isAccountAssembly != "$class$QiXinShiJinShuangXiangJiConfig$")
+        if (isAccountAssembly != "$class$MaiLiDingZiConfig$")
         {
-            throw std::runtime_error("Assembly is not $class$QiXinShiJinShuangXiangJiConfig$");
+            throw std::runtime_error("Assembly is not $class$MaiLiDingZiConfig$");
         }
         auto totalProductionVolumeItem = rw::oso::ObjectStoreCoreToItem(assembly.getItem("$variable$totalProductionVolume$"));
         if (!totalProductionVolumeItem) {
@@ -66,7 +66,7 @@ namespace cdm {
         iswenzi = iswenziItem->getValueAsBool();
     }
 
-    inline QiXinShiJinShuangXiangJiConfig::QiXinShiJinShuangXiangJiConfig(const QiXinShiJinShuangXiangJiConfig& obj)
+    inline MaiLiDingZiConfig::MaiLiDingZiConfig(const MaiLiDingZiConfig& obj)
     {
         totalProductionVolume = obj.totalProductionVolume;
         totalDefectiveVolume = obj.totalDefectiveVolume;
@@ -76,7 +76,7 @@ namespace cdm {
         iswenzi = obj.iswenzi;
     }
 
-    inline QiXinShiJinShuangXiangJiConfig& QiXinShiJinShuangXiangJiConfig::operator=(const QiXinShiJinShuangXiangJiConfig& obj)
+    inline MaiLiDingZiConfig& MaiLiDingZiConfig::operator=(const MaiLiDingZiConfig& obj)
     {
         if (this != &obj) {
             totalProductionVolume = obj.totalProductionVolume;
@@ -89,10 +89,10 @@ namespace cdm {
         return *this;
     }
 
-    inline QiXinShiJinShuangXiangJiConfig::operator rw::oso::ObjectStoreAssembly() const
+    inline MaiLiDingZiConfig::operator rw::oso::ObjectStoreAssembly() const
     {
         rw::oso::ObjectStoreAssembly assembly;
-        assembly.setName("$class$QiXinShiJinShuangXiangJiConfig$");
+        assembly.setName("$class$MaiLiDingZiConfig$");
         auto totalProductionVolumeItem = std::make_shared<rw::oso::ObjectStoreItem>();
         totalProductionVolumeItem->setName("$variable$totalProductionVolume$");
         totalProductionVolumeItem->setValueFromInt(totalProductionVolume);
@@ -120,12 +120,12 @@ namespace cdm {
         return assembly;
     }
 
-    inline bool QiXinShiJinShuangXiangJiConfig::operator==(const QiXinShiJinShuangXiangJiConfig& obj) const
+    inline bool MaiLiDingZiConfig::operator==(const MaiLiDingZiConfig& obj) const
     {
         return totalProductionVolume == obj.totalProductionVolume && totalDefectiveVolume == obj.totalDefectiveVolume && isDebug == obj.isDebug && isDefect == obj.isDefect && isshibiekuang == obj.isshibiekuang && iswenzi == obj.iswenzi;
     }
 
-    inline bool QiXinShiJinShuangXiangJiConfig::operator!=(const QiXinShiJinShuangXiangJiConfig& obj) const
+    inline bool MaiLiDingZiConfig::operator!=(const MaiLiDingZiConfig& obj) const
     {
         return !(*this == obj);
     }

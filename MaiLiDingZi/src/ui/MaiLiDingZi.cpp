@@ -7,7 +7,6 @@
 #include "ui_MaiLiDingZi.h"
 #include <QPushButton>
 
-#include "DlgProductScore.h"
 #include "DlgProductSet.h"
 #include "Modules.hpp"
 #include "NumberKeyboard.h"
@@ -65,8 +64,6 @@ void MaiLiDingZi::build_connect()
 		this, &MaiLiDingZi::pbtn_exit_clicked);
 	QObject::connect(ui->pbtn_set, &QPushButton::clicked,
 		this, &MaiLiDingZi::pbtn_set_clicked);
-	QObject::connect(ui->pbtn_score, &QPushButton::clicked,
-		this, &MaiLiDingZi::pbtn_score_clicked);
 	QObject::connect(ui->rbtn_debug, &QRadioButton::clicked,
 		this, &MaiLiDingZi::rbtn_debug_checked);
 	QObject::connect(ui->rbtn_removeFunc, &QRadioButton::clicked,
@@ -84,7 +81,7 @@ void MaiLiDingZi::build_connect()
 
 void MaiLiDingZi::build_MaiLiDingZiData()
 {
-	auto& qiXinShiJinDanXiangJiConfig = Modules::getInstance().configManagerModule.qiXinShiJinShuangXiangJiConfig;
+	auto& qiXinShiJinDanXiangJiConfig = Modules::getInstance().configManagerModule.maiLiDingZiConfig;
 	auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
 	qiXinShiJinDanXiangJiConfig.isDebug = false;
 	qiXinShiJinDanXiangJiConfig.isDefect = true;		// 默认开启剔废
@@ -173,7 +170,6 @@ void MaiLiDingZi::changeLanguage(int index)
 		ui->ckb_wenzi->setText("文字");
 		ui->rbtn_removeFunc->setText("剔除功能");
 		ui->pbtn_set->setText("设置");
-		ui->pbtn_score->setText("分数");
 
 		// UI 里有但原代码没覆盖：底部提示/报警信息
 		ui->label_companyInfo->setText("暂无报警信息");
@@ -202,7 +198,6 @@ void MaiLiDingZi::changeLanguage(int index)
 
 		// 操作按钮
 		ui->pbtn_set->setText("Settings");
-		ui->pbtn_score->setText("Score");
 
 		// UI 里有但原代码没覆盖：底部提示/报警信息
 		ui->label_companyInfo->setText("No alarms");
@@ -345,14 +340,6 @@ void MaiLiDingZi::pbtn_set_clicked()
 	_dlgProductSet->exec();
 }
 
-void MaiLiDingZi::pbtn_score_clicked()
-{
-	auto& _dlgProductScore = Modules::getInstance().uiModule._dlgProductScore;
-	_dlgProductScore->setFixedSize(this->width(), this->height());
-	_dlgProductScore->setWindowFlags(Qt::Window | Qt::CustomizeWindowHint);
-	_dlgProductScore->exec();
-}
-
 void MaiLiDingZi::rbtn_debug_checked(bool checked)
 {
 	auto isRuning = ui->rbtn_removeFunc->isChecked();
@@ -404,7 +391,7 @@ void MaiLiDingZi::rbtn_removeFunc_checked(bool checked)
 
 void MaiLiDingZi::ckb_shibiekuang_checked(bool checked)
 {
-	auto& qiXinShiJinDanXiangJiConfig = Modules::getInstance().configManagerModule.qiXinShiJinShuangXiangJiConfig;
+	auto& qiXinShiJinDanXiangJiConfig = Modules::getInstance().configManagerModule.maiLiDingZiConfig;
 	qiXinShiJinDanXiangJiConfig.isshibiekuang = ui->ckb_shibiekuang->isChecked();
 
 	emit shibiekuangChanged();
@@ -412,7 +399,7 @@ void MaiLiDingZi::ckb_shibiekuang_checked(bool checked)
 
 void MaiLiDingZi::ckb_wenzi_checked(bool checked)
 {
-	auto& qiXinShiJinDanXiangJiConfig = Modules::getInstance().configManagerModule.qiXinShiJinShuangXiangJiConfig;
+	auto& qiXinShiJinDanXiangJiConfig = Modules::getInstance().configManagerModule.maiLiDingZiConfig;
 	qiXinShiJinDanXiangJiConfig.iswenzi = ui->ckb_wenzi->isChecked();
 
 	emit wenziChanged();
@@ -420,7 +407,7 @@ void MaiLiDingZi::ckb_wenzi_checked(bool checked)
 
 void MaiLiDingZi::pbtn_resetProduct_clicked()
 {
-	auto& qiXinShiJinDanXiangJiConfig = Modules::getInstance().configManagerModule.qiXinShiJinShuangXiangJiConfig;
+	auto& qiXinShiJinDanXiangJiConfig = Modules::getInstance().configManagerModule.maiLiDingZiConfig;
 
 	qiXinShiJinDanXiangJiConfig.totalProductionVolume = 0;
 	qiXinShiJinDanXiangJiConfig.totalDefectiveVolume = 0;

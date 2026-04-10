@@ -200,7 +200,7 @@ void ImgProModule::buildImgProContext()
 void ImgProModule::buildImgProContextPreProcess()
 {
 	auto& runningState = Modules::getInstance().runtimeInfoModule.runningState;
-	auto& qiXinShiJinDanXiangJiConfig = Modules::getInstance().configManagerModule.qiXinShiJinShuangXiangJiConfig;
+	auto& qiXinShiJinDanXiangJiConfig = Modules::getInstance().configManagerModule.maiLiDingZiConfig;
 	auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
 	auto& scoreConfig = Modules::getInstance().configManagerModule.scoreConfig;
 
