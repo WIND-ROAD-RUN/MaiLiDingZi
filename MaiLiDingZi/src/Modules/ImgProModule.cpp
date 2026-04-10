@@ -38,15 +38,13 @@ void ImgProModule::buildImgProContext()
 void ImgProModule::buildImgProContextPreProcess()
 {
 	auto& runningState = Modules::getInstance().runtimeInfoModule.runningState;
-	auto& qiXinShiJinDanXiangJiConfig = Modules::getInstance().configManagerModule.maiLiDingZiConfig;
+	auto& maiLiDingZiConfig = Modules::getInstance().configManagerModule.maiLiDingZiConfig;
 	auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
 
 #pragma region  build base
 	imageProcessContext_PreProcess.imageProcessPrepare = [this, &runningState,
-		&qiXinShiJinDanXiangJiConfig, &setConfig](rw::imgPro::ImageProcessContext& context)
+		&maiLiDingZiConfig, &setConfig](rw::imgPro::ImageProcessContext& context)
 		{
-			context.customFields["hasBody"] = false;
-
 			if (context.customFields.find("ImgProcessIndex") == context.customFields.end()) {
 				return;
 			}
@@ -69,7 +67,7 @@ void ImgProModule::buildImgProContextPreProcess()
 				{
 					currentPixToWorld = setConfig.xiangsudangliang2;
 				}
-				context.customFields["CurrentPixToWorld"] = static_cast<double>(currentPixToWorld);
+				context.customFields["CurrentPixToWorld"] = currentPixToWorld;
 			}
 
 			//update Config
@@ -98,14 +96,8 @@ void ImgProModule::buildImgProContextPreProcess()
 					limitBottom = static_cast<int>(setConfig.xiaxianwei2);
 				}
 
-				context.customFields["LimitTop"] = static_cast<int>(limitTop);
-				context.customFields["LimitBottom"] = static_cast<int>(limitBottom);
-			}
-
-			//update defect ignore loc
-			{
-				context.customFields["DefectIgnoreX"] = static_cast<int>(setConfig.defectIgnoreX);
-				context.customFields["DefectIgnoreY"] = static_cast<int>(setConfig.defectIgnoreY);
+				context.customFields["LimitTop"] = limitTop;
+				context.customFields["LimitBottom"] = limitBottom;
 			}
 
 			// update drawConfig
@@ -114,7 +106,7 @@ void ImgProModule::buildImgProContextPreProcess()
 				{
 					context.defectDrawCfg.textLocate = rw::imgPro::ConfigDrawRect::TextLocate::LeftTopIn;
 
-					if (qiXinShiJinDanXiangJiConfig.isshibiekuang)
+					if (maiLiDingZiConfig.isshibiekuang)
 					{
 						context.defectDrawCfg.isDrawDefects = true;
 						context.defectDrawCfg.isDrawDisableDefects = true;
@@ -129,7 +121,7 @@ void ImgProModule::buildImgProContextPreProcess()
 						context.defectDrawCfg.isDisScoreText = false;
 					}
 
-					if (qiXinShiJinDanXiangJiConfig.iswenzi)
+					if (maiLiDingZiConfig.iswenzi)
 					{
 						context.runTextCfg.isDrawExtraText = true;
 					}

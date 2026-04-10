@@ -34,8 +34,6 @@ private slots:
 	void btn_cipinguangdianjiange_clicked();
 	void btn_fenliaojishu_clicked();
 	void btn_xiangjiguangdianpingbishijian_clicked();
-	void btn_defectIgnoreX_clicked();
-	void btn_defectIgnoreY_clicked();
 	void btn_tifeijiange1_clicked();
 	void btn_tifeijiange2_clicked();
 

@@ -38,8 +38,6 @@ void DlgProductSet::read_config()
 	ui->btn_cipinguangdianjiange->setText(QString::number(setConfig.cipinguangdianjiange));
 	ui->btn_fenliaojishu->setText(QString::number(setConfig.fenliaojishu));
 	ui->btn_xiangjiguangdianpingbishijian->setText(QString::number(setConfig.xiangjiguangdianpingbishijian));
-	ui->btn_defectIgnoreX->setText(QString::number(setConfig.defectIgnoreX));
-	ui->btn_defectIgnoreY->setText(QString::number(setConfig.defectIgnoreY));
 	ui->btn_tifeijiange1->setText(QString::number(setConfig.tifeijiange1));
 	ui->btn_tifeijiange2->setText(QString::number(setConfig.tifeijiange2));
 
@@ -79,8 +77,6 @@ void DlgProductSet::build_connect()
 	connect(ui->btn_cipinguangdianjiange, &QPushButton::clicked, this, &DlgProductSet::btn_cipinguangdianjiange_clicked);
 	connect(ui->btn_fenliaojishu, &QPushButton::clicked, this, &DlgProductSet::btn_fenliaojishu_clicked);
 	connect(ui->btn_xiangjiguangdianpingbishijian, &QPushButton::clicked, this, &DlgProductSet::btn_xiangjiguangdianpingbishijian_clicked);
-	connect(ui->btn_defectIgnoreX, &QPushButton::clicked, this, &DlgProductSet::btn_defectIgnoreX_clicked);
-	connect(ui->btn_defectIgnoreY, &QPushButton::clicked, this, &DlgProductSet::btn_defectIgnoreY_clicked);
 	connect(ui->btn_tifeijiange1, &QPushButton::clicked, this, &DlgProductSet::btn_tifeijiange1_clicked);
 	connect(ui->btn_tifeijiange2, &QPushButton::clicked, this, &DlgProductSet::btn_tifeijiange2_clicked);
 	connect(ui->btn_testTrigger1_1, &QPushButton::clicked, this, &DlgProductSet::btn_testTrigger1_1_clicked);
@@ -121,11 +117,6 @@ void DlgProductSet::changeLanguage(int index)
 		ui->lb_paizhaoyanshi->setText("拍照延时");
 		ui->lb_fenliaojishu->setText("分料计数");
 		ui->lb_fenliaojishuUnit->setText("个");
-
-		ui->lb_defectIgnoreX->setText("未知缺陷边缘忽略X");
-		ui->lb_defectIgnoreY->setText("未知缺陷边缘忽略Y");
-		ui->lb_defectIgnoreXUnit->setText("mm");
-		ui->lb_defectIgnoreYUnit->setText("mm");
 
 		ui->lb_tifeijiange1->setText("一相机剔废间隔");
 		ui->lb_tifeijiange2->setText("二相机剔废间隔");
@@ -177,12 +168,6 @@ void DlgProductSet::changeLanguage(int index)
 		ui->lb_paizhaoyanshi->setText("Capture delay");
 		ui->lb_fenliaojishu->setText("Feeding count");
 		ui->lb_fenliaojishuUnit->setText("pcs");
-
-		// 新增：原来没覆盖到的中文 label（未知缺陷边缘忽略、剔废间隔）
-		ui->lb_defectIgnoreX->setText("Unknown defect edge ignore (X)");
-		ui->lb_defectIgnoreY->setText("Unknown defect edge ignore (Y)");
-		ui->lb_defectIgnoreXUnit->setText("mm");
-		ui->lb_defectIgnoreYUnit->setText("mm");
 
 		ui->lb_tifeijiange1->setText("Camera 1 reject interval");
 		ui->lb_tifeijiange2->setText("Camera 2 reject interval");
@@ -331,44 +316,6 @@ void DlgProductSet::btn_xiangjiguangdianpingbishijian_clicked()
 		auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
 		ui->btn_xiangjiguangdianpingbishijian->setText(value);
 		setConfig.xiangjiguangdianpingbishijian = value.toDouble();
-	}
-}
-
-void DlgProductSet::btn_defectIgnoreX_clicked()
-{
-	NumberKeyboard numKeyBord;
-	numKeyBord.setWindowFlags(Qt::Window | Qt::CustomizeWindowHint);
-	auto isAccept = numKeyBord.exec();
-	if (isAccept == QDialog::Accepted)
-	{
-		auto value = numKeyBord.getValue();
-		if (value.toDouble() < 0)
-		{
-			QMessageBox::warning(this, "提示", "请输入大于等于0的数值");
-			return;
-		}
-		auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
-		ui->btn_defectIgnoreX->setText(value);
-		setConfig.defectIgnoreX = value.toDouble();
-	}
-}
-
-void DlgProductSet::btn_defectIgnoreY_clicked()
-{
-	NumberKeyboard numKeyBord;
-	numKeyBord.setWindowFlags(Qt::Window | Qt::CustomizeWindowHint);
-	auto isAccept = numKeyBord.exec();
-	if (isAccept == QDialog::Accepted)
-	{
-		auto value = numKeyBord.getValue();
-		if (value.toDouble() < 0)
-		{
-			QMessageBox::warning(this, "提示", "请输入大于等于0的数值");
-			return;
-		}
-		auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
-		ui->btn_defectIgnoreY->setText(value);
-		setConfig.defectIgnoreY = value.toDouble();
 	}
 }
 
