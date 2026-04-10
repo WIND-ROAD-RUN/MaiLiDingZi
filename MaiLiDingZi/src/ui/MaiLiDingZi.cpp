@@ -158,9 +158,8 @@ void MaiLiDingZi::changeLanguage(int index)
 	// 中文
 	if (0 == index)
 	{
-		clickableTitle->setText("湿巾检测");
+		clickableTitle->setText("钉子检测");
 		ui->label_cameraStateTitle->setText("相机状态");
-		ui->label_cardStateTitle->setText("板卡状态");
 		ui->label_info->setText("统计信息");
 		ui->pbtn_resetProduct->setText("产量清零");
 		ui->label_produceTotal->setText("生产总量");
@@ -178,11 +177,10 @@ void MaiLiDingZi::changeLanguage(int index)
 	else if (1 == index)
 	{
 		// 标题：建议用更自然的英文 & 保持一行/两行皆可
-		clickableTitle->setText("Wet Wipe\nInspection");
+		clickableTitle->setText("Nail Inspection");
 
 		// 标题区
 		ui->label_cameraStateTitle->setText("Camera Status");
-		ui->label_cardStateTitle->setText("Controller Status");
 
 		// 统计区
 		ui->label_info->setText("Statistics");
@@ -209,30 +207,6 @@ void MaiLiDingZi::updateCameraLabelState(int cameraIndex, bool state)
 	auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
 	switch (cameraIndex)
 	{
-	case 0:
-		if (state) {
-			if (0 == setConfig.changeLanguageIndex)
-			{
-				ui->label_cardState->setText("连接成功");
-			}
-			else if (1 == setConfig.changeLanguageIndex)
-			{
-				ui->label_cardState->setText("Connected");
-			}
-			ui->label_cardState->setStyleSheet(QString("QLabel{color:rgb(0, 230, 0);font-size: 18px;font - weight: bold;padding: 5px 5px;} "));
-		}
-		else {
-			if (0 == setConfig.changeLanguageIndex)
-			{
-				ui->label_cardState->setText("连接失败");
-			}
-			else if (1 == setConfig.changeLanguageIndex)
-			{
-				ui->label_cardState->setText("Disconnected");
-			}
-			ui->label_cardState->setStyleSheet(QString("QLabel{color:rgb(230, 0, 0);font-size: 18px;font - weight: bold;padding: 5px 5px;} "));
-		}
-		break;
 	case 1:
 		if (state) {
 			if (0 == setConfig.changeLanguageIndex)

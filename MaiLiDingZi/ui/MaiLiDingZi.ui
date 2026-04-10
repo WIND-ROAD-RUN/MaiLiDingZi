@@ -115,7 +115,7 @@ QGroupBox::title {
     }</string>
                  </property>
                  <property name="text">
-                  <string>湿巾检测</string>
+                  <string>钉子检测</string>
                  </property>
                 </widget>
                </item>
@@ -168,7 +168,7 @@ QPushButton:pressed {
               </widget>
              </item>
              <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,1">
+              <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1">
                <item>
                 <layout class="QVBoxLayout" name="verticalLayout_3" stretch="1,1,1">
                  <item>
@@ -262,54 +262,6 @@ QPushButton:pressed {
                     </widget>
                    </item>
                   </layout>
-                 </item>
-                </layout>
-               </item>
-               <item>
-                <layout class="QVBoxLayout" name="verticalLayout_4" stretch="1,1,1">
-                 <item>
-                  <widget class="QLabel" name="label_cardStateTitle">
-                   <property name="styleSheet">
-                    <string notr="true">QLabel {
-       font-size: 20px;        
-       font-weight: bold;        
-       color: rgb(232, 232, 232);         
-       padding: 5px 5px;     
-       border-bottom: 2px solid #cccccc; 
-    }</string>
-                   </property>
-                   <property name="text">
-                    <string>板卡状态</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="label_cardState">
-                   <property name="styleSheet">
-                    <string notr="true">QLabel {
-       font-size: 18px;        
-       font-weight: bold;        
-padding: 5px 5px;  
-    }</string>
-                   </property>
-                   <property name="text">
-                    <string>TextLabel</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="label_4">
-                   <property name="styleSheet">
-                    <string notr="true">QLabel {
-       font-size: 18px;        
-       font-weight: bold;        
-padding: 5px 5px;  
-    }</string>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                  </widget>
                  </item>
                 </layout>
                </item>

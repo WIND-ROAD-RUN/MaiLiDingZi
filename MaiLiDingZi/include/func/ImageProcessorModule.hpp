@@ -6,7 +6,6 @@
 #include <QQueue>
 #include <QMutex>
 #include <QWaitCondition>
-#include <opencv2/opencv.hpp>
 #include <vector>
 #include <QThread>
 #include <QPixmap>
@@ -41,7 +40,7 @@ private:
 	std::unique_ptr<rw::imgPro::ImageProcess> _imgProcess;
 public:
 	// 构建模型引擎
-	void buildSegModelEngine(const QString& enginePath);
+	void buildDetModelEngine(const QString& enginePath);
 private:
 	QQueue<MatInfo>& _queue;
 	QMutex& _mutex;

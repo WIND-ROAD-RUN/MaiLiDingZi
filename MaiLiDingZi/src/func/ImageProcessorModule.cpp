@@ -118,7 +118,7 @@ void ImageProcessor::run_OpenRemoveFunc_emitErrorInfo(bool isbad)
 	}
 }
 
-void ImageProcessor::buildSegModelEngine(const QString& enginePath)
+void ImageProcessor::buildDetModelEngine(const QString& enginePath)
 {
 	rw::ModelEngineConfig modelEngineConfig;
 	modelEngineConfig.conf_threshold = 0.1f;
@@ -126,7 +126,7 @@ void ImageProcessor::buildSegModelEngine(const QString& enginePath)
 	modelEngineConfig.imagePretreatmentPolicy = rw::ImagePretreatmentPolicy::LetterBox;
 	modelEngineConfig.letterBoxColor = cv::Scalar(114, 114, 114);
 	modelEngineConfig.modelPath = enginePath.toStdString();
-	auto engine = rw::ModelEngineFactory::createModelEngine(modelEngineConfig, rw::ModelType::Yolov11_Seg_Mask, rw::ModelEngineDeployType::TensorRT);
+	auto engine = rw::ModelEngineFactory::createModelEngine(modelEngineConfig, rw::ModelType::Yolov11_Det_CudaAcc, rw::ModelEngineDeployType::TensorRT);
 
 	_imgProcess = std::make_unique<rw::imgPro::ImageProcess>(engine);
 	_imgProcess->context() = Modules::getInstance().imgProModule.imageProcessContext_PreProcess;
@@ -141,7 +141,7 @@ void ImageProcessingModule::BuildModule()
 		ImageProcessor* processor = new ImageProcessor(_queue, _mutex, _condition, workIndexCount, this);
 		workIndexCount++;
 		processor->imageProcessingModuleIndex = index;
-		processor->buildSegModelEngine(modelEnginePath);
+		processor->buildDetModelEngine(modelEnginePath);
 		connect(processor, &ImageProcessor::imageReady, this, &ImageProcessingModule::imageReady, Qt::QueuedConnection);
 
 		_processors.push_back(processor);
