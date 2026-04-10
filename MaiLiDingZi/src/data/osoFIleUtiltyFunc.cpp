@@ -3,7 +3,7 @@
 #include "Utilty.hpp"
 
 rw::imgPro::EliminationInfoFunc::ClassIdWithConfigMap cdm::ScoreConfigConvert::toClassIdWithEliConfigMap(
-	const cdm::ScoreConfig& config, double areaFactor, double scoreFactor)
+	double areaFactor, double scoreFactor)
 {
 	rw::imgPro::EliminationInfoFunc::ClassIdWithConfigMap result{};
 
@@ -20,7 +20,6 @@ rw::imgPro::EliminationInfoFunc::ClassIdWithConfigMap cdm::ScoreConfigConvert::t
 		result[i] = configBase;
 	}
 
-	// body不参与剔废
 	result[ClassId::dingZi].isUsingArea = false;
 	result[ClassId::dingZi].isUsingScore = true;
 
@@ -28,7 +27,7 @@ rw::imgPro::EliminationInfoFunc::ClassIdWithConfigMap cdm::ScoreConfigConvert::t
 }
 
 rw::imgPro::DefectResultInfoFunc::ClassIdWithConfigMap cdm::ScoreConfigConvert::toClassIdWithDefConfigMap(
-	const cdm::ScoreConfig& config)
+)
 {
 	rw::imgPro::DefectResultInfoFunc::ClassIdWithConfigMap result;
 	rw::imgPro::DefectResultInfoFunc::Config configBase;
@@ -38,7 +37,6 @@ rw::imgPro::DefectResultInfoFunc::ClassIdWithConfigMap cdm::ScoreConfigConvert::
 		result[i] = configBase;
 	}
 
-	// body不参与剔废
 	result[ClassId::dingZi].isEnable = true;
 
 	return result;

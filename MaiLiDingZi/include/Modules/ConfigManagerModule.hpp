@@ -4,7 +4,6 @@
 #include<QObject>
 #include "oso_StorageContext.hpp"
 #include "SetConfig.hpp"
-#include "ScoreConfig.hpp"
 #include "MaiLiDingZi.hpp"
 
 class ConfigManagerModule
@@ -21,5 +20,4 @@ public:
 public:
 	cdm::MaiLiDingZiConfig maiLiDingZiConfig{};
 	cdm::SetConfig setConfig{};
-	cdm::ScoreConfig scoreConfig{};
 };

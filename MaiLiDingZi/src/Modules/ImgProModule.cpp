@@ -40,11 +40,10 @@ void ImgProModule::buildImgProContextPreProcess()
 	auto& runningState = Modules::getInstance().runtimeInfoModule.runningState;
 	auto& qiXinShiJinDanXiangJiConfig = Modules::getInstance().configManagerModule.maiLiDingZiConfig;
 	auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
-	auto& scoreConfig = Modules::getInstance().configManagerModule.scoreConfig;
 
 #pragma region  build base
 	imageProcessContext_PreProcess.imageProcessPrepare = [this, &runningState,
-		&qiXinShiJinDanXiangJiConfig, &setConfig, &scoreConfig](rw::imgPro::ImageProcessContext& context)
+		&qiXinShiJinDanXiangJiConfig, &setConfig](rw::imgPro::ImageProcessContext& context)
 		{
 			context.customFields["hasBody"] = false;
 
@@ -77,8 +76,8 @@ void ImgProModule::buildImgProContextPreProcess()
 			{
 				if (imgProIsUpdate[stationIdx])
 				{
-					context.eliminationCfg = cdm::ScoreConfigConvert::toClassIdWithEliConfigMap(scoreConfig, currentPixToWorld * currentPixToWorld, 100);
-					context.defectCfg = cdm::ScoreConfigConvert::toClassIdWithDefConfigMap(scoreConfig);
+					context.eliminationCfg = cdm::ScoreConfigConvert::toClassIdWithEliConfigMap(currentPixToWorld * currentPixToWorld, 100);
+					context.defectCfg = cdm::ScoreConfigConvert::toClassIdWithDefConfigMap();
 					imgProIsUpdate[stationIdx] = false;
 				}
 			}

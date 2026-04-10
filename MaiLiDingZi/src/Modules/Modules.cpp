@@ -206,7 +206,6 @@ bool Modules::check()
 
 	checkFileExistAndFormat<cdm::MaiLiDingZiConfig>(globalPath.maiLiDingZiConfigPath, storageContext);
 	checkFileExistAndFormat<cdm::SetConfig>(globalPath.setConfigPath, storageContext);
-	checkFileExistAndFormat<cdm::ScoreConfig>(globalPath.scoreConfigPath, storageContext);
 #pragma endregion
 
 	return true;

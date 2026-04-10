@@ -12,7 +12,6 @@ public:
 	QString modelRootPath = projectHome + R"(model\)";
 	QString maiLiDingZiConfigPath = configRootPath + R"(MaiLiDingZiConfig.xml)";
 	QString setConfigPath = configRootPath + R"(SetConfig.xml)";
-	QString scoreConfigPath = configRootPath + R"(ScoreConfig.xml)";
 	QString modelPath = modelRootPath + R"(MaiLiDingZi.engine)";
 public:
 	QString imageSaveRootPath = R"(D:\Images\)";

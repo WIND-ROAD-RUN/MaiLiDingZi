@@ -23,14 +23,6 @@ bool ConfigManagerModule::build()
 	}
 #pragma endregion
 
-#pragma region readscoreCfg
-	loadMainWindowConfig = storeContext->loadSafe(globalPath.scoreConfigPath.toStdString());
-	if (loadMainWindowConfig)
-	{
-		scoreConfig = *loadMainWindowConfig;
-	}
-#pragma endregion
-
 	return true;
 }
 
@@ -38,7 +30,6 @@ void ConfigManagerModule::destroy()
 {
 	storeContext->saveSafe(maiLiDingZiConfig, globalPath.maiLiDingZiConfigPath.toStdString());
 	storeContext->saveSafe(setConfig, globalPath.setConfigPath.toStdString());
-	storeContext->saveSafe(scoreConfig, globalPath.scoreConfigPath.toStdString());
 	storeContext.reset();
 }
 
