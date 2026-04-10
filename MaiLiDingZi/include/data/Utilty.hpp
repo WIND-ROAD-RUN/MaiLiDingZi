@@ -24,21 +24,11 @@ struct ClassId
 {
 public:
 	static constexpr int minNum = 0;
-	static constexpr int zangWu = 0;
-	static constexpr int xiaoZangWu = 1;
-	static constexpr int jieTou = 2;
-	static constexpr int body = 3;
-	static constexpr int huaPo = 4;
-	static constexpr int siLie = 5;
-	static constexpr int queShi = 6;
 
-	static constexpr int customClassIdMin = 6;
+	static constexpr int dingZi = 0;
 
-	static constexpr int weiZhiQueXian = 7;
-	static constexpr int weiZhiQueXianTotal = 8;
-
-	static constexpr int maxNum = 8;
-	static constexpr int indexCount = 9;
+	static constexpr int maxNum = 0;
+	static constexpr int indexCount = 1;
 	static std::unordered_map<rw::imgPro::ClassId, rw::imgPro::ClassIdName> classIdNameMap;
 	static std::vector<rw::imgPro::ClassId> classids;
 };
@@ -47,7 +37,6 @@ struct Utility
 {
 	static QString cameraIp1;
 	static QString cameraIp2;
-	static QString zmotionIp;
 };
 
 // 图片信息

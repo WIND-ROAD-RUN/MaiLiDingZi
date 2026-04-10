@@ -14,7 +14,6 @@
 #include "rqw_RunEnvCheck.hpp"
 #include "TestModule.hpp"
 #include "WarningModule.hpp"
-#include "MotionControllerModule.hpp"
 
 class Modules
 	:public IModule<bool>
@@ -51,7 +50,6 @@ public:
 public:
 	CameraModule cameraModule;
 	ReconnectModule reconnectModule;
-	MotionControllerModule motionControllerModule;
 	UIModule uiModule;
 	ConfigManagerModule configManagerModule;
 	RuntimeInfoModule runtimeInfoModule;

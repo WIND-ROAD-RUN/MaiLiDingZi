@@ -123,8 +123,6 @@ void MaiLiDingZi::initializeComponents()
 
 	build_camera();
 
-	build_zmotion();
-
 	build_connect();
 
 #ifndef BUILD_WITHOUT_HARDWARE
@@ -144,13 +142,6 @@ void MaiLiDingZi::build_camera()
 		auto index = static_cast<int>(error);
 		updateCameraLabelState(index, false);
 	}
-}
-
-void MaiLiDingZi::build_zmotion()
-{
-	auto& motionControllerModule = Modules::getInstance().motionControllerModule;
-	auto isBuildZmotion = motionControllerModule.zmotion->connect();
-	updateCameraLabelState(0, isBuildZmotion);
 }
 
 void MaiLiDingZi::changeLanguage(int index)

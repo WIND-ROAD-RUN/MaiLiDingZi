@@ -35,8 +35,6 @@ signals:
 
 	void startMonitor(int index);
 
-	void buildZMotion();
-	void destroyZMotion();
 private:
 	std::atomic<bool> running; // 使用原子变量保证线程安全
 };

@@ -38,7 +38,6 @@ public:
 public:
 	void build_camera();
 public:
-	void build_zmotion();
 public slots:
 	void changeLanguage(int index);
 public slots:

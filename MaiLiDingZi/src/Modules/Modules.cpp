@@ -47,9 +47,6 @@ bool Modules::build()
 	// 构建图像保存模块
 	imgSaveModule.build();
 
-	// 构建运动控制模块
-	auto motionControllerModuleBuild = motionControllerModule.build();
-
 #ifdef BUILD_WITHOUT_HARDWARE
 	test_module.build();
 #endif
@@ -70,14 +67,12 @@ void Modules::destroy()
 	reconnectModule.destroy();
 	eliminateModule.destroy();
 	imgSaveModule.destroy();
-	motionControllerModule.destroy();
 }
 
 void Modules::start()
 {
 	uiModule.start();
 	configManagerModule.start();
-	motionControllerModule.start();
 	runtimeInfoModule.start();
 	imgSaveModule.start();
 	eliminateModule.start();
@@ -101,7 +96,6 @@ void Modules::stop()
 	eliminateModule.stop();
 	imgSaveModule.stop();
 	runtimeInfoModule.stop();
-	motionControllerModule.stop();
 	configManagerModule.stop();
 	uiModule.stop();
 }
@@ -113,13 +107,6 @@ void Modules::connect()
 		Modules::getInstance().imgProModule.imageProcessingModule1.get(), &ImageProcessingModule::onFrameCaptured, Qt::DirectConnection);
 	QObject::connect(&cameraModule, &CameraModule::frameCaptured2,
 		Modules::getInstance().imgProModule.imageProcessingModule2.get(), &ImageProcessingModule::onFrameCaptured, Qt::DirectConnection);
-#pragma endregion
-
-#pragma region connect zmotion and ReconnectModule
-	QObject::connect(reconnectModule.monitorCameraAndCardStateThread.get(), &CameraAndCardStateThread::buildZMotion,
-		&motionControllerModule, &MotionControllerModule::onBuildZMotion);
-	QObject::connect(reconnectModule.monitorCameraAndCardStateThread.get(), &CameraAndCardStateThread::destroyZMotion,
-		&motionControllerModule, &MotionControllerModule::onDestroyZMotion);
 #pragma endregion
 
 #pragma region connect UIModule and ReconnectModule
