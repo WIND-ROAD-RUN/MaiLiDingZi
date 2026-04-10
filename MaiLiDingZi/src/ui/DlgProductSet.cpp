@@ -44,12 +44,16 @@ void DlgProductSet::read_config()
 	// 相机参数
 	ui->btn_shangxianwei1->setText(QString::number(setConfig.shangxianwei1));
 	ui->btn_xiaxianwei1->setText(QString::number(setConfig.xiaxianwei1));
+	ui->btn_zuoxianwei1->setText(QString::number(setConfig.zuoxianwei1));
+	ui->btn_youxianwei1->setText(QString::number(setConfig.youxianwei1));
 	ui->btn_baoguang1->setText(QString::number(setConfig.baoguang1));
 	ui->btn_zengyi1->setText(QString::number(setConfig.zengyi1));
 	ui->btn_xiangsudangliang1->setText(QString::number(setConfig.xiangsudangliang1));
 
 	ui->btn_shangxianwei2->setText(QString::number(setConfig.shangxianwei2));
 	ui->btn_xiaxianwei2->setText(QString::number(setConfig.xiaxianwei2));
+	ui->btn_zuoxianwei2->setText(QString::number(setConfig.zuoxianwei2));
+	ui->btn_youxianwei2->setText(QString::number(setConfig.youxianwei2));
 	ui->btn_baoguang2->setText(QString::number(setConfig.baoguang2));
 	ui->btn_zengyi2->setText(QString::number(setConfig.zengyi2));
 	ui->btn_xiangsudangliang2->setText(QString::number(setConfig.xiangsudangliang2));
@@ -85,11 +89,15 @@ void DlgProductSet::build_connect()
 	connect(ui->btn_testTrigger2_2, &QPushButton::clicked, this, &DlgProductSet::btn_testTrigger2_2_clicked);
 	connect(ui->btn_shangxianwei1, &QPushButton::clicked, this, &DlgProductSet::btn_shangxianwei1_clicked);
 	connect(ui->btn_xiaxianwei1, &QPushButton::clicked, this, &DlgProductSet::btn_xiaxianwei1_clicked);
+	connect(ui->btn_zuoxianwei1, &QPushButton::clicked, this, &DlgProductSet::btn_zuoxianwei1_clicked);
+	connect(ui->btn_youxianwei1, &QPushButton::clicked, this, &DlgProductSet::btn_youxianwei1_clicked);
 	connect(ui->btn_baoguang1, &QPushButton::clicked, this, &DlgProductSet::btn_baoguang1_clicked);
 	connect(ui->btn_zengyi1, &QPushButton::clicked, this, &DlgProductSet::btn_zengyi1_clicked);
 	connect(ui->btn_xiangsudangliang1, &QPushButton::clicked, this, &DlgProductSet::btn_xiangsudangliang1_clicked);
 	connect(ui->btn_shangxianwei2, &QPushButton::clicked, this, &DlgProductSet::btn_shangxianwei2_clicked);
 	connect(ui->btn_xiaxianwei2, &QPushButton::clicked, this, &DlgProductSet::btn_xiaxianwei2_clicked);
+	connect(ui->btn_zuoxianwei2, &QPushButton::clicked, this, &DlgProductSet::btn_zuoxianwei2_clicked);
+	connect(ui->btn_youxianwei2, &QPushButton::clicked, this, &DlgProductSet::btn_youxianwei2_clicked);
 	connect(ui->btn_baoguang2, &QPushButton::clicked, this, &DlgProductSet::btn_baoguang2_clicked);
 	connect(ui->btn_zengyi2, &QPushButton::clicked, this, &DlgProductSet::btn_zengyi2_clicked);
 	connect(ui->btn_xiangsudangliang2, &QPushButton::clicked, this, &DlgProductSet::btn_xiangsudangliang2_clicked);
@@ -113,7 +121,7 @@ void DlgProductSet::changeLanguage(int index)
 		ui->lb_cipinguangdianjiange->setText("次品光电间隔");
 		ui->lb_cipinguangdianjiangeUnit->setText("个");
 		ui->lb_xiangjiguangdianpingbishijian->setText("相机光电屏蔽时间");
-		ui->lb_xiangsudangliang->setText("像素当量");
+		ui->lb_xiangsudangliang1->setText("像素当量");
 		ui->lb_paizhaoyanshi->setText("拍照延时");
 		ui->lb_fenliaojishu->setText("分料计数");
 		ui->lb_fenliaojishuUnit->setText("个");
@@ -123,29 +131,29 @@ void DlgProductSet::changeLanguage(int index)
 		ui->lb_tifeijiange1Unit->setText("个");
 		ui->lb_tifeijiange2Unit->setText("个");
 
-		ui->lb_shangxianwei->setText("上限位");
-		ui->lb_xiaxianwei->setText("下限位");
-		ui->lb_baoguang->setText("曝光");
-		ui->lb_zengyi->setText("增益");
+		ui->lb_shangxianwei1->setText("上限位");
+		ui->lb_xiaxianwei1->setText("下限位");
+		ui->lb_baoguang1->setText("曝光");
+		ui->lb_zengyi1->setText("增益");
 
-		ui->lb_zengyi_2->setText("切换语言");
+		ui->lb_changeLanguage->setText("切换语言");
 
 		ui->lb_xiangjiguangdianpingbishijianUnit->setText("ms");
 		ui->lb_jishuguangdianyanshiUnit->setText("ms");
 		ui->lb_paizhaoyanshiUnit->setText("ms");
 
-		ui->lb_shangxianweiUnit->setText("Pix");
-		ui->lb_xiaxianweiUnit->setText("Pix");
-		ui->lb_xiangsudangliangUnit->setText("mm/Pix");
+		ui->lb_shangxianweiUnit1->setText("Pix");
+		ui->lb_xiaxianweiUnit1->setText("Pix");
+		ui->lb_xiangsudangliangUnit1->setText("mm/Pix");
 
-		ui->lb_shangxianwei_2->setText("上限位");
-		ui->lb_xiaxianwei_2->setText("下限位");
-		ui->lb_baoguang_2->setText("曝光");
-		ui->lb_zengyi_4->setText("增益");
-		ui->lb_shangxianweiUnit_2->setText("Pix");
-		ui->lb_xiaxianweiUnit_2->setText("Pix");
-		ui->lb_xiangsudangliang_3->setText("像素当量");
-		ui->lb_xiangsudangliangUnit_3->setText("mm/Pix");
+		ui->lb_shangxianwei2->setText("上限位");
+		ui->lb_xiaxianwei2->setText("下限位");
+		ui->lb_baoguang2->setText("曝光");
+		ui->lb_zengyi2->setText("增益");
+		ui->lb_shangxianweiUnit2->setText("Pix");
+		ui->lb_xiaxianweiUnit2->setText("Pix");
+		ui->lb_xiangsudangliang2->setText("像素当量");
+		ui->lb_xiangsudangliangUnit2->setText("mm/Pix");
 
 		ui->btn_testTrigger1_1->setText("测试触发1");
 		ui->btn_testTrigger2_1->setText("测试触发2");
@@ -164,7 +172,7 @@ void DlgProductSet::changeLanguage(int index)
 		ui->lb_cipinguangdianjiange->setText("Reject sensor interval");
 		ui->lb_cipinguangdianjiangeUnit->setText("pcs");
 		ui->lb_xiangjiguangdianpingbishijian->setText("Camera sensor mask time");
-		ui->lb_xiangsudangliang->setText("Pixel size");
+		ui->lb_xiangsudangliang1->setText("Pixel size");
 		ui->lb_paizhaoyanshi->setText("Capture delay");
 		ui->lb_fenliaojishu->setText("Feeding count");
 		ui->lb_fenliaojishuUnit->setText("pcs");
@@ -175,31 +183,31 @@ void DlgProductSet::changeLanguage(int index)
 		ui->lb_tifeijiange2Unit->setText("pcs");
 
 		// 相机参数通用 label（tab 内 Camera 1）
-		ui->lb_shangxianwei->setText("Upper limit");
-		ui->lb_xiaxianwei->setText("Lower limit");
-		ui->lb_baoguang->setText("Exposure");
-		ui->lb_zengyi->setText("Gain");
+		ui->lb_shangxianwei1->setText("Upper limit");
+		ui->lb_xiaxianwei1->setText("Lower limit");
+		ui->lb_baoguang1->setText("Exposure");
+		ui->lb_zengyi1->setText("Gain");
 
 		// 语言切换
-		ui->lb_zengyi_2->setText("Language");
+		ui->lb_changeLanguage->setText("Language");
 
 		ui->lb_xiangjiguangdianpingbishijianUnit->setText("ms");
 		ui->lb_jishuguangdianyanshiUnit->setText("ms");
 		ui->lb_paizhaoyanshiUnit->setText("ms");
 
-		ui->lb_shangxianweiUnit->setText("px");
-		ui->lb_xiaxianweiUnit->setText("px");
-		ui->lb_xiangsudangliangUnit->setText("mm/px");
+		ui->lb_shangxianweiUnit1->setText("px");
+		ui->lb_xiaxianweiUnit1->setText("px");
+		ui->lb_xiangsudangliangUnit1->setText("mm/px");
 
 		// Camera 2 tab 内那套 label（注意 ui 里是 _2/_3/_4 命名）
-		ui->lb_shangxianwei_2->setText("Upper limit");
-		ui->lb_xiaxianwei_2->setText("Lower limit");
-		ui->lb_baoguang_2->setText("Exposure");
-		ui->lb_zengyi_4->setText("Gain");
-		ui->lb_shangxianweiUnit_2->setText("px");
-		ui->lb_xiaxianweiUnit_2->setText("px");
-		ui->lb_xiangsudangliang_3->setText("Pixel size");
-		ui->lb_xiangsudangliangUnit_3->setText("mm/px");
+		ui->lb_shangxianwei2->setText("Upper limit");
+		ui->lb_xiaxianwei2->setText("Lower limit");
+		ui->lb_baoguang2->setText("Exposure");
+		ui->lb_zengyi2->setText("Gain");
+		ui->lb_shangxianweiUnit2->setText("px");
+		ui->lb_xiaxianweiUnit2->setText("px");
+		ui->lb_xiangsudangliang2->setText("Pixel size");
+		ui->lb_xiangsudangliangUnit2->setText("mm/px");
 
 		// 测试触发
 		ui->btn_testTrigger1_1->setText("Test trigger 1");
@@ -467,6 +475,44 @@ void DlgProductSet::btn_xiaxianwei1_clicked()
 	}
 }
 
+void DlgProductSet::btn_zuoxianwei1_clicked()
+{
+	NumberKeyboard numKeyBord;
+	numKeyBord.setWindowFlags(Qt::Window | Qt::CustomizeWindowHint);
+	auto isAccept = numKeyBord.exec();
+	if (isAccept == QDialog::Accepted)
+	{
+		auto value = numKeyBord.getValue();
+		if (value.toDouble() < 0)
+		{
+			QMessageBox::warning(this, "提示", "请输入大于等于0的数值");
+			return;
+		}
+		auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
+		ui->btn_zuoxianwei1->setText(value);
+		setConfig.zuoxianwei1 = value.toDouble();
+	}
+}
+
+void DlgProductSet::btn_youxianwei1_clicked()
+{
+	NumberKeyboard numKeyBord;
+	numKeyBord.setWindowFlags(Qt::Window | Qt::CustomizeWindowHint);
+	auto isAccept = numKeyBord.exec();
+	if (isAccept == QDialog::Accepted)
+	{
+		auto value = numKeyBord.getValue();
+		if (value.toDouble() < 0)
+		{
+			QMessageBox::warning(this, "提示", "请输入大于等于0的数值");
+			return;
+		}
+		auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
+		ui->btn_youxianwei1->setText(value);
+		setConfig.youxianwei1 = value.toDouble();
+	}
+}
+
 void DlgProductSet::btn_baoguang1_clicked()
 {
 	NumberKeyboard numKeyBord;
@@ -569,6 +615,44 @@ void DlgProductSet::btn_xiaxianwei2_clicked()
 		auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
 		ui->btn_xiaxianwei2->setText(value);
 		setConfig.xiaxianwei2 = value.toDouble();
+	}
+}
+
+void DlgProductSet::btn_zuoxianwei2_clicked()
+{
+	NumberKeyboard numKeyBord;
+	numKeyBord.setWindowFlags(Qt::Window | Qt::CustomizeWindowHint);
+	auto isAccept = numKeyBord.exec();
+	if (isAccept == QDialog::Accepted)
+	{
+		auto value = numKeyBord.getValue();
+		if (value.toDouble() < 0)
+		{
+			QMessageBox::warning(this, "提示", "请输入大于等于0的数值");
+			return;
+		}
+		auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
+		ui->btn_zuoxianwei2->setText(value);
+		setConfig.zuoxianwei2 = value.toDouble();
+	}
+}
+
+void DlgProductSet::btn_youxianwei2_clicked()
+{
+	NumberKeyboard numKeyBord;
+	numKeyBord.setWindowFlags(Qt::Window | Qt::CustomizeWindowHint);
+	auto isAccept = numKeyBord.exec();
+	if (isAccept == QDialog::Accepted)
+	{
+		auto value = numKeyBord.getValue();
+		if (value.toDouble() < 0)
+		{
+			QMessageBox::warning(this, "提示", "请输入大于等于0的数值");
+			return;
+		}
+		auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
+		ui->btn_youxianwei2->setText(value);
+		setConfig.youxianwei2 = value.toDouble();
 	}
 }
 

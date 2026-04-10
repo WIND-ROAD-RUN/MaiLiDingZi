@@ -84,20 +84,28 @@ void ImgProModule::buildImgProContextPreProcess()
 			{
 				int limitTop{ 0 };
 				int limitBottom{ 0 };
+				int limitLeft{ 0 };
+				int limitRight{ 0 };
 
 				if (1 == ImgProcessIndex)
 				{
 					limitTop = static_cast<int>(setConfig.shangxianwei1);
 					limitBottom = static_cast<int>(setConfig.xiaxianwei1);
+					limitLeft = static_cast<int>(setConfig.zuoxianwei1);
+					limitRight = static_cast<int>(setConfig.youxianwei1);
 				}
 				else if (2 == ImgProcessIndex)
 				{
 					limitTop = static_cast<int>(setConfig.shangxianwei2);
 					limitBottom = static_cast<int>(setConfig.xiaxianwei2);
+					limitLeft = static_cast<int>(setConfig.zuoxianwei2);
+					limitRight = static_cast<int>(setConfig.youxianwei2);
 				}
 
 				context.customFields["LimitTop"] = limitTop;
 				context.customFields["LimitBottom"] = limitBottom;
+				context.customFields["LimitLeft"] = limitLeft;
+				context.customFields["LimitRight"] = limitRight;
 			}
 
 			// update drawConfig
@@ -150,6 +158,8 @@ void ImgProModule::buildImgProContextPreProcess()
 			bool isInShieldWires = false;
 			int limitTop{ -1 };
 			int limitBottom{ -1 };
+			int limitLeft{ -1 };
+			int limitRight{ -1 };
 
 			if (context.customFields.find("LimitTop") != context.customFields.end()) {
 				limitTop = std::any_cast<int>(context.customFields["LimitTop"]);
@@ -157,8 +167,14 @@ void ImgProModule::buildImgProContextPreProcess()
 			if (context.customFields.find("LimitBottom") != context.customFields.end()) {
 				limitBottom = std::any_cast<int>(context.customFields["LimitBottom"]);
 			}
+			if (context.customFields.find("LimitLeft") != context.customFields.end()) {
+				limitLeft = std::any_cast<int>(context.customFields["LimitLeft"]);
+			}
+			if (context.customFields.find("LimitRight") != context.customFields.end()) {
+				limitRight = std::any_cast<int>(context.customFields["LimitRight"]);
+			}
 
-			if (-1 == limitTop || -1 == limitBottom)
+			if (-1 == limitTop || -1 == limitBottom  || -1 == limitLeft || -1 == limitRight)
 			{
 				return false;
 			}
@@ -166,7 +182,10 @@ void ImgProModule::buildImgProContextPreProcess()
 
 			if (info.center_y > limitTop && info.center_y < limitBottom)
 			{
-				isInShieldWires = true;
+				if (info.center_x > limitLeft && info.center_x < limitRight)
+				{
+					isInShieldWires = true;
+				}
 			}
 
 			return !isInShieldWires;
@@ -177,7 +196,7 @@ void ImgProModule::buildImgProContextPreProcess()
 			const rw::imgPro::ProcessResult& processResult,
 			rw::imgPro::ImageProcessContext& context) {
 
-				
+
 		};
 #pragma endregion
 
@@ -190,66 +209,66 @@ void ImgProModule::buildImgProContextPreProcess()
 		rw::imgPro::EliminationInfo& eliminationInfo
 		)
 		{
-			
+
 		};
 #pragma endregion
 
 #pragma region build defect config
-		imageProcessContext_PreProcess.defectResultGetContext.getDefectResultExtraPostOperate = [this](
-			const rw::imgPro::ProcessResult& processResult,
-			const rw::imgPro::ClassIdWithEliminationInfoConfigMap& classIdWithEliminationInfoConfigMap,
-			const rw::imgPro::EliminationInfo& eliminationInfo,
-			const rw::imgPro::ClassIdWithDefectResultInfoFuncConfigMap& classIdWithDefectResultInfoFuncConfigMap,
-			rw::imgPro::DefectResultInfo& defectResultInfo,
-			rw::imgPro::ImageProcessContext& context)
-			{
+	imageProcessContext_PreProcess.defectResultGetContext.getDefectResultExtraPostOperate = [this](
+		const rw::imgPro::ProcessResult& processResult,
+		const rw::imgPro::ClassIdWithEliminationInfoConfigMap& classIdWithEliminationInfoConfigMap,
+		const rw::imgPro::EliminationInfo& eliminationInfo,
+		const rw::imgPro::ClassIdWithDefectResultInfoFuncConfigMap& classIdWithDefectResultInfoFuncConfigMap,
+		rw::imgPro::DefectResultInfo& defectResultInfo,
+		rw::imgPro::ImageProcessContext& context)
+		{
 
-				
-			};
+
+		};
 #pragma endregion
 
 #pragma region build defect draw
-		imageProcessContext_PreProcess.defectDrawCfg.classIdNameMap = ClassId::classIdNameMap;
+	imageProcessContext_PreProcess.defectDrawCfg.classIdNameMap = ClassId::classIdNameMap;
 
-		rw::imgPro::DefectDrawConfigItem drawItemConfig;
+	rw::imgPro::DefectDrawConfigItem drawItemConfig;
 
-		drawItemConfig.fontSize = 50;
-		drawItemConfig.textLocate = rw::imgPro::ConfigDrawRect::TextLocate::LeftTopIn;
-		drawItemConfig.isDrawMask = false;
+	drawItemConfig.fontSize = 50;
+	drawItemConfig.textLocate = rw::imgPro::ConfigDrawRect::TextLocate::LeftTopIn;
+	drawItemConfig.isDrawMask = false;
 
-		for (size_t i = ClassId::minNum; i <= ClassId::maxNum; i++)
-		{
-			imageProcessContext_PreProcess.defectDrawCfg.classIdWithConfigMap[i] = drawItemConfig;
-		}
+	for (size_t i = ClassId::minNum; i <= ClassId::maxNum; i++)
+	{
+		imageProcessContext_PreProcess.defectDrawCfg.classIdWithConfigMap[i] = drawItemConfig;
+	}
 
-		imageProcessContext_PreProcess.defectDrawFuncContext.postOperateFunc = [](
-			QImage& img,
-			rw::imgPro::ImageProcessContext& context) {
+	imageProcessContext_PreProcess.defectDrawFuncContext.postOperateFunc = [](
+		QImage& img,
+		rw::imgPro::ImageProcessContext& context) {
 
-				int limitTop{ 0 };
-				int limitBottom{ 0 };
+			int limitTop{ 0 };
+			int limitBottom{ 0 };
 
-				if (context.customFields.find("LimitTop") != context.customFields.end()) {
-					limitTop = std::any_cast<int>(context.customFields["LimitTop"]);
-				}
-				if (context.customFields.find("LimitBottom") != context.customFields.end()) {
-					limitBottom = std::any_cast<int>(context.customFields["LimitBottom"]);
-				}
+			if (context.customFields.find("LimitTop") != context.customFields.end()) {
+				limitTop = std::any_cast<int>(context.customFields["LimitTop"]);
+			}
+			if (context.customFields.find("LimitBottom") != context.customFields.end()) {
+				limitBottom = std::any_cast<int>(context.customFields["LimitBottom"]);
+			}
 
-				rw::imgPro::ConfigDrawLine configDrawLine;
-				configDrawLine.color = rw::imgPro::Color::Red;
-				configDrawLine.thickness = 20;
+			rw::imgPro::ConfigDrawLine configDrawLine;
+			configDrawLine.color = rw::imgPro::Color::Red;
+			configDrawLine.thickness = 20;
 
-				configDrawLine.position = limitTop;
-				rw::imgPro::ImagePainter::drawHorizontalLine(img, configDrawLine);
-				configDrawLine.position = limitBottom;
-				rw::imgPro::ImagePainter::drawHorizontalLine(img, configDrawLine);
-			};
+			configDrawLine.position = limitTop;
+			rw::imgPro::ImagePainter::drawHorizontalLine(img, configDrawLine);
+			configDrawLine.position = limitBottom;
+			rw::imgPro::ImagePainter::drawHorizontalLine(img, configDrawLine);
+		};
 #pragma endregion
 
 #pragma region build running time text
-		imageProcessContext_PreProcess.runTextCfg.isDisProcessImgTime = false;
-		imageProcessContext_PreProcess.runTextCfg.isDrawExtraText = false;
+	imageProcessContext_PreProcess.runTextCfg.isDisProcessImgTime = false;
+	imageProcessContext_PreProcess.runTextCfg.isDrawExtraText = false;
 #pragma endregion
 }
 

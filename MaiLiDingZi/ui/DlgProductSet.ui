@@ -321,7 +321,7 @@ QLabel.icon {
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_37" stretch="1,1">
                   <item>
-                   <widget class="QLabel" name="lb_zengyi_2">
+                   <widget class="QLabel" name="lb_changeLanguage">
                     <property name="styleSheet">
                      <string notr="true">/* 基础标签样式 */
 QLabel {
@@ -1935,7 +1935,7 @@ QGroupBox::title {
                    <item>
                     <layout class="QHBoxLayout" name="horizontalLayout_25" stretch="2,1,1">
                      <item>
-                      <widget class="QLabel" name="lb_shangxianwei">
+                      <widget class="QLabel" name="lb_shangxianwei1">
                        <property name="styleSheet">
                         <string notr="true">/* 基础标签样式 */
 QLabel {
@@ -2060,7 +2060,7 @@ QPushButton:pressed {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLabel" name="lb_shangxianweiUnit">
+                      <widget class="QLabel" name="lb_shangxianweiUnit1">
                        <property name="styleSheet">
                         <string notr="true">/* 基础标签样式 */
 QLabel {
@@ -2156,7 +2156,7 @@ QLabel.icon {
                    <item>
                     <layout class="QHBoxLayout" name="horizontalLayout_26" stretch="2,1,1">
                      <item>
-                      <widget class="QLabel" name="lb_xiaxianwei">
+                      <widget class="QLabel" name="lb_xiaxianwei1">
                        <property name="styleSheet">
                         <string notr="true">/* 基础标签样式 */
 QLabel {
@@ -2281,7 +2281,453 @@ QPushButton:pressed {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLabel" name="lb_xiaxianweiUnit">
+                      <widget class="QLabel" name="lb_xiaxianweiUnit1">
+                       <property name="styleSheet">
+                        <string notr="true">/* 基础标签样式 */
+QLabel {
+    color: #444444;          /* 主文字色 */
+    font-size: 14px;         /* 标准字号 */
+    background: transparent; /* 透明背景 */
+    padding: 2px 4px;        /* 基础内边距 */
+}
+
+/* 标题样式 */
+QLabel.title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333333;
+    border-bottom: 1px solid #DDDDDD; /* 下划线装饰 */
+    padding-bottom: 4px;
+}
+
+/* 副标题/次要文本 */
+QLabel.subtitle {
+    color: #666666;
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* 强调文本 */
+QLabel.emphasis {
+    color: #333333;
+    font-weight: 500;
+    background-color: #F5F5F5;
+    border-radius: 3px;
+    padding: 4px 8px;
+}
+
+/* 状态标签（成功/警告/错误） */
+QLabel[state=&quot;success&quot;] {
+    color: #228B22;          /* 森林绿 */
+    border-left: 3px solid #228B22;
+    padding-left: 8px;
+}
+
+QLabel[state=&quot;warning&quot;] {
+    color: #FF8C00;          /* 暗橙 */
+    border-left: 3px solid #FF8C00;
+    padding-left: 8px;
+}
+
+QLabel[state=&quot;error&quot;] {
+    color: #B22222;          /* 砖红 */
+    border-left: 3px solid #B22222;
+    padding-left: 8px;
+}
+
+/* 数据展示标签 */
+QLabel.data {
+    color: #2F4F4F;          /* 深石板灰 */
+    font-family: monospace;
+    border: 1px solid #E0E0E0;
+    background-color: #FFFFFF;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+/* 禁用状态 */
+QLabel:disabled {
+    color: #AAAAAA;
+    background-color: transparent;
+}
+
+/* 链接样式（伪链接效果） */
+QLabel.link {
+    color: #4682B4;          /* 钢蓝 */
+    text-decoration: underline;
+    border-bottom: 1px dotted #4682B4;
+}
+
+/* 图标标签 */
+QLabel.icon {
+    qproperty-alignment: AlignCenter;
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    padding: 12px;
+}</string>
+                       </property>
+                       <property name="text">
+                        <string>Pix</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_9">
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_29" stretch="2,1,1">
+                     <item>
+                      <widget class="QLabel" name="lb_zuoxianwei1">
+                       <property name="styleSheet">
+                        <string notr="true">/* 基础标签样式 */
+QLabel {
+    color: #444444;          /* 主文字色 */
+    font-size: 20px;         /* 标准字号 */
+    background: transparent; /* 透明背景 */
+    padding: 2px 4px;        /* 基础内边距 */
+}
+
+/* 标题样式 */
+QLabel.title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333333;
+    border-bottom: 1px solid #DDDDDD; /* 下划线装饰 */
+    padding-bottom: 4px;
+}
+
+/* 副标题/次要文本 */
+QLabel.subtitle {
+    color: #666666;
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* 强调文本 */
+QLabel.emphasis {
+    color: #333333;
+    font-weight: 500;
+    background-color: #F5F5F5;
+    border-radius: 3px;
+    padding: 4px 8px;
+}
+
+/* 状态标签（成功/警告/错误） */
+QLabel[state=&quot;success&quot;] {
+    color: #228B22;          /* 森林绿 */
+    border-left: 3px solid #228B22;
+    padding-left: 8px;
+}
+
+QLabel[state=&quot;warning&quot;] {
+    color: #FF8C00;          /* 暗橙 */
+    border-left: 3px solid #FF8C00;
+    padding-left: 8px;
+}
+
+QLabel[state=&quot;error&quot;] {
+    color: #B22222;          /* 砖红 */
+    border-left: 3px solid #B22222;
+    padding-left: 8px;
+}
+
+/* 数据展示标签 */
+QLabel.data {
+    color: #2F4F4F;          /* 深石板灰 */
+    font-family: monospace;
+    border: 1px solid #E0E0E0;
+    background-color: #FFFFFF;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+/* 禁用状态 */
+QLabel:disabled {
+    color: #AAAAAA;
+    background-color: transparent;
+}
+
+/* 链接样式（伪链接效果） */
+QLabel.link {
+    color: #4682B4;          /* 钢蓝 */
+    text-decoration: underline;
+    border-bottom: 1px dotted #4682B4;
+}
+
+/* 图标标签 */
+QLabel.icon {
+    qproperty-alignment: AlignCenter;
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    padding: 12px;
+}</string>
+                       </property>
+                       <property name="text">
+                        <string>左限位</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="btn_zuoxianwei1">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton {
+    padding: 6px 14px;
+    border: 2px solid #CCC;
+    border-radius: 4px;
+    background-color: white;
+    color: #444;
+	font-size:20px;
+}
+
+QPushButton:hover {
+    border-color: #999;
+    background-color: #F5F5F5;
+}
+
+QPushButton:pressed {
+    border-color: #777;
+    background-color: #EEE;
+}</string>
+                       </property>
+                       <property name="text">
+                        <string>value</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="lb_zuoxianweiUnit1">
+                       <property name="styleSheet">
+                        <string notr="true">/* 基础标签样式 */
+QLabel {
+    color: #444444;          /* 主文字色 */
+    font-size: 14px;         /* 标准字号 */
+    background: transparent; /* 透明背景 */
+    padding: 2px 4px;        /* 基础内边距 */
+}
+
+/* 标题样式 */
+QLabel.title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333333;
+    border-bottom: 1px solid #DDDDDD; /* 下划线装饰 */
+    padding-bottom: 4px;
+}
+
+/* 副标题/次要文本 */
+QLabel.subtitle {
+    color: #666666;
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* 强调文本 */
+QLabel.emphasis {
+    color: #333333;
+    font-weight: 500;
+    background-color: #F5F5F5;
+    border-radius: 3px;
+    padding: 4px 8px;
+}
+
+/* 状态标签（成功/警告/错误） */
+QLabel[state=&quot;success&quot;] {
+    color: #228B22;          /* 森林绿 */
+    border-left: 3px solid #228B22;
+    padding-left: 8px;
+}
+
+QLabel[state=&quot;warning&quot;] {
+    color: #FF8C00;          /* 暗橙 */
+    border-left: 3px solid #FF8C00;
+    padding-left: 8px;
+}
+
+QLabel[state=&quot;error&quot;] {
+    color: #B22222;          /* 砖红 */
+    border-left: 3px solid #B22222;
+    padding-left: 8px;
+}
+
+/* 数据展示标签 */
+QLabel.data {
+    color: #2F4F4F;          /* 深石板灰 */
+    font-family: monospace;
+    border: 1px solid #E0E0E0;
+    background-color: #FFFFFF;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+/* 禁用状态 */
+QLabel:disabled {
+    color: #AAAAAA;
+    background-color: transparent;
+}
+
+/* 链接样式（伪链接效果） */
+QLabel.link {
+    color: #4682B4;          /* 钢蓝 */
+    text-decoration: underline;
+    border-bottom: 1px dotted #4682B4;
+}
+
+/* 图标标签 */
+QLabel.icon {
+    qproperty-alignment: AlignCenter;
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    padding: 12px;
+}</string>
+                       </property>
+                       <property name="text">
+                        <string>Pix</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_30" stretch="2,1,1">
+                     <item>
+                      <widget class="QLabel" name="lb_youxianwei1">
+                       <property name="styleSheet">
+                        <string notr="true">/* 基础标签样式 */
+QLabel {
+    color: #444444;          /* 主文字色 */
+    font-size: 20px;         /* 标准字号 */
+    background: transparent; /* 透明背景 */
+    padding: 2px 4px;        /* 基础内边距 */
+}
+
+/* 标题样式 */
+QLabel.title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333333;
+    border-bottom: 1px solid #DDDDDD; /* 下划线装饰 */
+    padding-bottom: 4px;
+}
+
+/* 副标题/次要文本 */
+QLabel.subtitle {
+    color: #666666;
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* 强调文本 */
+QLabel.emphasis {
+    color: #333333;
+    font-weight: 500;
+    background-color: #F5F5F5;
+    border-radius: 3px;
+    padding: 4px 8px;
+}
+
+/* 状态标签（成功/警告/错误） */
+QLabel[state=&quot;success&quot;] {
+    color: #228B22;          /* 森林绿 */
+    border-left: 3px solid #228B22;
+    padding-left: 8px;
+}
+
+QLabel[state=&quot;warning&quot;] {
+    color: #FF8C00;          /* 暗橙 */
+    border-left: 3px solid #FF8C00;
+    padding-left: 8px;
+}
+
+QLabel[state=&quot;error&quot;] {
+    color: #B22222;          /* 砖红 */
+    border-left: 3px solid #B22222;
+    padding-left: 8px;
+}
+
+/* 数据展示标签 */
+QLabel.data {
+    color: #2F4F4F;          /* 深石板灰 */
+    font-family: monospace;
+    border: 1px solid #E0E0E0;
+    background-color: #FFFFFF;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+/* 禁用状态 */
+QLabel:disabled {
+    color: #AAAAAA;
+    background-color: transparent;
+}
+
+/* 链接样式（伪链接效果） */
+QLabel.link {
+    color: #4682B4;          /* 钢蓝 */
+    text-decoration: underline;
+    border-bottom: 1px dotted #4682B4;
+}
+
+/* 图标标签 */
+QLabel.icon {
+    qproperty-alignment: AlignCenter;
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    padding: 12px;
+}</string>
+                       </property>
+                       <property name="text">
+                        <string>右限位</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="btn_youxianwei1">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton {
+    padding: 6px 14px;
+    border: 2px solid #CCC;
+    border-radius: 4px;
+    background-color: white;
+    color: #444;
+	font-size:20px;
+}
+
+QPushButton:hover {
+    border-color: #999;
+    background-color: #F5F5F5;
+}
+
+QPushButton:pressed {
+    border-color: #777;
+    background-color: #EEE;
+}</string>
+                       </property>
+                       <property name="text">
+                        <string>value</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="lb_youxianweiUnit1">
                        <property name="styleSheet">
                         <string notr="true">/* 基础标签样式 */
 QLabel {
@@ -2381,7 +2827,7 @@ QLabel.icon {
                    <item>
                     <layout class="QHBoxLayout" name="horizontalLayout_32" stretch="2,1,1">
                      <item>
-                      <widget class="QLabel" name="lb_baoguang">
+                      <widget class="QLabel" name="lb_baoguang1">
                        <property name="styleSheet">
                         <string notr="true">/* 基础标签样式 */
 QLabel {
@@ -2506,7 +2952,7 @@ QPushButton:pressed {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLabel" name="lb_baoguangUnit">
+                      <widget class="QLabel" name="lb_baoguangUnit1">
                        <property name="styleSheet">
                         <string notr="true">/* 基础标签样式 */
 QLabel {
@@ -2602,7 +3048,7 @@ QLabel.icon {
                    <item>
                     <layout class="QHBoxLayout" name="horizontalLayout_36" stretch="2,1,1">
                      <item>
-                      <widget class="QLabel" name="lb_zengyi">
+                      <widget class="QLabel" name="lb_zengyi1">
                        <property name="styleSheet">
                         <string notr="true">/* 基础标签样式 */
 QLabel {
@@ -2727,7 +3173,7 @@ QPushButton:pressed {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLabel" name="lb_zengyiUnit">
+                      <widget class="QLabel" name="lb_zengyiUnit1">
                        <property name="styleSheet">
                         <string notr="true">/* 基础标签样式 */
 QLabel {
@@ -2825,7 +3271,7 @@ QLabel.icon {
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="1,1,1">
                    <item>
-                    <widget class="QLabel" name="lb_xiangsudangliang">
+                    <widget class="QLabel" name="lb_xiangsudangliang1">
                      <property name="styleSheet">
                       <string notr="true">/* 基础标签样式 */
 QLabel {
@@ -2950,7 +3396,7 @@ QPushButton:pressed {
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="lb_xiangsudangliangUnit">
+                    <widget class="QLabel" name="lb_xiangsudangliangUnit1">
                      <property name="styleSheet">
                       <string notr="true">/* 基础标签样式 */
 QLabel {
@@ -3179,7 +3625,7 @@ QGroupBox::title {
                    <item>
                     <layout class="QHBoxLayout" name="horizontalLayout_27" stretch="2,1,1">
                      <item>
-                      <widget class="QLabel" name="lb_shangxianwei_2">
+                      <widget class="QLabel" name="lb_shangxianwei2">
                        <property name="styleSheet">
                         <string notr="true">/* 基础标签样式 */
 QLabel {
@@ -3304,7 +3750,7 @@ QPushButton:pressed {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLabel" name="lb_shangxianweiUnit_2">
+                      <widget class="QLabel" name="lb_shangxianweiUnit2">
                        <property name="styleSheet">
                         <string notr="true">/* 基础标签样式 */
 QLabel {
@@ -3400,7 +3846,7 @@ QLabel.icon {
                    <item>
                     <layout class="QHBoxLayout" name="horizontalLayout_28" stretch="2,1,1">
                      <item>
-                      <widget class="QLabel" name="lb_xiaxianwei_2">
+                      <widget class="QLabel" name="lb_xiaxianwei2">
                        <property name="styleSheet">
                         <string notr="true">/* 基础标签样式 */
 QLabel {
@@ -3525,7 +3971,453 @@ QPushButton:pressed {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLabel" name="lb_xiaxianweiUnit_2">
+                      <widget class="QLabel" name="lb_xiaxianweiUnit2">
+                       <property name="styleSheet">
+                        <string notr="true">/* 基础标签样式 */
+QLabel {
+    color: #444444;          /* 主文字色 */
+    font-size: 14px;         /* 标准字号 */
+    background: transparent; /* 透明背景 */
+    padding: 2px 4px;        /* 基础内边距 */
+}
+
+/* 标题样式 */
+QLabel.title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333333;
+    border-bottom: 1px solid #DDDDDD; /* 下划线装饰 */
+    padding-bottom: 4px;
+}
+
+/* 副标题/次要文本 */
+QLabel.subtitle {
+    color: #666666;
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* 强调文本 */
+QLabel.emphasis {
+    color: #333333;
+    font-weight: 500;
+    background-color: #F5F5F5;
+    border-radius: 3px;
+    padding: 4px 8px;
+}
+
+/* 状态标签（成功/警告/错误） */
+QLabel[state=&quot;success&quot;] {
+    color: #228B22;          /* 森林绿 */
+    border-left: 3px solid #228B22;
+    padding-left: 8px;
+}
+
+QLabel[state=&quot;warning&quot;] {
+    color: #FF8C00;          /* 暗橙 */
+    border-left: 3px solid #FF8C00;
+    padding-left: 8px;
+}
+
+QLabel[state=&quot;error&quot;] {
+    color: #B22222;          /* 砖红 */
+    border-left: 3px solid #B22222;
+    padding-left: 8px;
+}
+
+/* 数据展示标签 */
+QLabel.data {
+    color: #2F4F4F;          /* 深石板灰 */
+    font-family: monospace;
+    border: 1px solid #E0E0E0;
+    background-color: #FFFFFF;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+/* 禁用状态 */
+QLabel:disabled {
+    color: #AAAAAA;
+    background-color: transparent;
+}
+
+/* 链接样式（伪链接效果） */
+QLabel.link {
+    color: #4682B4;          /* 钢蓝 */
+    text-decoration: underline;
+    border-bottom: 1px dotted #4682B4;
+}
+
+/* 图标标签 */
+QLabel.icon {
+    qproperty-alignment: AlignCenter;
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    padding: 12px;
+}</string>
+                       </property>
+                       <property name="text">
+                        <string>Pix</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_31">
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_34" stretch="2,1,1">
+                     <item>
+                      <widget class="QLabel" name="lb_zuoxianwei2">
+                       <property name="styleSheet">
+                        <string notr="true">/* 基础标签样式 */
+QLabel {
+    color: #444444;          /* 主文字色 */
+    font-size: 20px;         /* 标准字号 */
+    background: transparent; /* 透明背景 */
+    padding: 2px 4px;        /* 基础内边距 */
+}
+
+/* 标题样式 */
+QLabel.title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333333;
+    border-bottom: 1px solid #DDDDDD; /* 下划线装饰 */
+    padding-bottom: 4px;
+}
+
+/* 副标题/次要文本 */
+QLabel.subtitle {
+    color: #666666;
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* 强调文本 */
+QLabel.emphasis {
+    color: #333333;
+    font-weight: 500;
+    background-color: #F5F5F5;
+    border-radius: 3px;
+    padding: 4px 8px;
+}
+
+/* 状态标签（成功/警告/错误） */
+QLabel[state=&quot;success&quot;] {
+    color: #228B22;          /* 森林绿 */
+    border-left: 3px solid #228B22;
+    padding-left: 8px;
+}
+
+QLabel[state=&quot;warning&quot;] {
+    color: #FF8C00;          /* 暗橙 */
+    border-left: 3px solid #FF8C00;
+    padding-left: 8px;
+}
+
+QLabel[state=&quot;error&quot;] {
+    color: #B22222;          /* 砖红 */
+    border-left: 3px solid #B22222;
+    padding-left: 8px;
+}
+
+/* 数据展示标签 */
+QLabel.data {
+    color: #2F4F4F;          /* 深石板灰 */
+    font-family: monospace;
+    border: 1px solid #E0E0E0;
+    background-color: #FFFFFF;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+/* 禁用状态 */
+QLabel:disabled {
+    color: #AAAAAA;
+    background-color: transparent;
+}
+
+/* 链接样式（伪链接效果） */
+QLabel.link {
+    color: #4682B4;          /* 钢蓝 */
+    text-decoration: underline;
+    border-bottom: 1px dotted #4682B4;
+}
+
+/* 图标标签 */
+QLabel.icon {
+    qproperty-alignment: AlignCenter;
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    padding: 12px;
+}</string>
+                       </property>
+                       <property name="text">
+                        <string>左限位</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="btn_zuoxianwei2">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton {
+    padding: 6px 14px;
+    border: 2px solid #CCC;
+    border-radius: 4px;
+    background-color: white;
+    color: #444;
+	font-size:20px;
+}
+
+QPushButton:hover {
+    border-color: #999;
+    background-color: #F5F5F5;
+}
+
+QPushButton:pressed {
+    border-color: #777;
+    background-color: #EEE;
+}</string>
+                       </property>
+                       <property name="text">
+                        <string>value</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="lb_zuoxianweiUnit2">
+                       <property name="styleSheet">
+                        <string notr="true">/* 基础标签样式 */
+QLabel {
+    color: #444444;          /* 主文字色 */
+    font-size: 14px;         /* 标准字号 */
+    background: transparent; /* 透明背景 */
+    padding: 2px 4px;        /* 基础内边距 */
+}
+
+/* 标题样式 */
+QLabel.title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333333;
+    border-bottom: 1px solid #DDDDDD; /* 下划线装饰 */
+    padding-bottom: 4px;
+}
+
+/* 副标题/次要文本 */
+QLabel.subtitle {
+    color: #666666;
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* 强调文本 */
+QLabel.emphasis {
+    color: #333333;
+    font-weight: 500;
+    background-color: #F5F5F5;
+    border-radius: 3px;
+    padding: 4px 8px;
+}
+
+/* 状态标签（成功/警告/错误） */
+QLabel[state=&quot;success&quot;] {
+    color: #228B22;          /* 森林绿 */
+    border-left: 3px solid #228B22;
+    padding-left: 8px;
+}
+
+QLabel[state=&quot;warning&quot;] {
+    color: #FF8C00;          /* 暗橙 */
+    border-left: 3px solid #FF8C00;
+    padding-left: 8px;
+}
+
+QLabel[state=&quot;error&quot;] {
+    color: #B22222;          /* 砖红 */
+    border-left: 3px solid #B22222;
+    padding-left: 8px;
+}
+
+/* 数据展示标签 */
+QLabel.data {
+    color: #2F4F4F;          /* 深石板灰 */
+    font-family: monospace;
+    border: 1px solid #E0E0E0;
+    background-color: #FFFFFF;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+/* 禁用状态 */
+QLabel:disabled {
+    color: #AAAAAA;
+    background-color: transparent;
+}
+
+/* 链接样式（伪链接效果） */
+QLabel.link {
+    color: #4682B4;          /* 钢蓝 */
+    text-decoration: underline;
+    border-bottom: 1px dotted #4682B4;
+}
+
+/* 图标标签 */
+QLabel.icon {
+    qproperty-alignment: AlignCenter;
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    padding: 12px;
+}</string>
+                       </property>
+                       <property name="text">
+                        <string>Pix</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_35" stretch="2,1,1">
+                     <item>
+                      <widget class="QLabel" name="lb_youxianwei2">
+                       <property name="styleSheet">
+                        <string notr="true">/* 基础标签样式 */
+QLabel {
+    color: #444444;          /* 主文字色 */
+    font-size: 20px;         /* 标准字号 */
+    background: transparent; /* 透明背景 */
+    padding: 2px 4px;        /* 基础内边距 */
+}
+
+/* 标题样式 */
+QLabel.title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333333;
+    border-bottom: 1px solid #DDDDDD; /* 下划线装饰 */
+    padding-bottom: 4px;
+}
+
+/* 副标题/次要文本 */
+QLabel.subtitle {
+    color: #666666;
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* 强调文本 */
+QLabel.emphasis {
+    color: #333333;
+    font-weight: 500;
+    background-color: #F5F5F5;
+    border-radius: 3px;
+    padding: 4px 8px;
+}
+
+/* 状态标签（成功/警告/错误） */
+QLabel[state=&quot;success&quot;] {
+    color: #228B22;          /* 森林绿 */
+    border-left: 3px solid #228B22;
+    padding-left: 8px;
+}
+
+QLabel[state=&quot;warning&quot;] {
+    color: #FF8C00;          /* 暗橙 */
+    border-left: 3px solid #FF8C00;
+    padding-left: 8px;
+}
+
+QLabel[state=&quot;error&quot;] {
+    color: #B22222;          /* 砖红 */
+    border-left: 3px solid #B22222;
+    padding-left: 8px;
+}
+
+/* 数据展示标签 */
+QLabel.data {
+    color: #2F4F4F;          /* 深石板灰 */
+    font-family: monospace;
+    border: 1px solid #E0E0E0;
+    background-color: #FFFFFF;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+/* 禁用状态 */
+QLabel:disabled {
+    color: #AAAAAA;
+    background-color: transparent;
+}
+
+/* 链接样式（伪链接效果） */
+QLabel.link {
+    color: #4682B4;          /* 钢蓝 */
+    text-decoration: underline;
+    border-bottom: 1px dotted #4682B4;
+}
+
+/* 图标标签 */
+QLabel.icon {
+    qproperty-alignment: AlignCenter;
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    padding: 12px;
+}</string>
+                       </property>
+                       <property name="text">
+                        <string>右限位</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="btn_youxianwei2">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton {
+    padding: 6px 14px;
+    border: 2px solid #CCC;
+    border-radius: 4px;
+    background-color: white;
+    color: #444;
+	font-size:20px;
+}
+
+QPushButton:hover {
+    border-color: #999;
+    background-color: #F5F5F5;
+}
+
+QPushButton:pressed {
+    border-color: #777;
+    background-color: #EEE;
+}</string>
+                       </property>
+                       <property name="text">
+                        <string>value</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="lb_youxianweiUnit2">
                        <property name="styleSheet">
                         <string notr="true">/* 基础标签样式 */
 QLabel {
@@ -3625,7 +4517,7 @@ QLabel.icon {
                    <item>
                     <layout class="QHBoxLayout" name="horizontalLayout_33" stretch="2,1,1">
                      <item>
-                      <widget class="QLabel" name="lb_baoguang_2">
+                      <widget class="QLabel" name="lb_baoguang2">
                        <property name="styleSheet">
                         <string notr="true">/* 基础标签样式 */
 QLabel {
@@ -3750,7 +4642,7 @@ QPushButton:pressed {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLabel" name="lb_baoguangUnit_2">
+                      <widget class="QLabel" name="lb_baoguangUnit2">
                        <property name="styleSheet">
                         <string notr="true">/* 基础标签样式 */
 QLabel {
@@ -3846,7 +4738,7 @@ QLabel.icon {
                    <item>
                     <layout class="QHBoxLayout" name="horizontalLayout_39" stretch="2,1,1">
                      <item>
-                      <widget class="QLabel" name="lb_zengyi_4">
+                      <widget class="QLabel" name="lb_zengyi2">
                        <property name="styleSheet">
                         <string notr="true">/* 基础标签样式 */
 QLabel {
@@ -3971,7 +4863,7 @@ QPushButton:pressed {
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLabel" name="lb_zengyiUnit_2">
+                      <widget class="QLabel" name="lb_zengyiUnit2">
                        <property name="styleSheet">
                         <string notr="true">/* 基础标签样式 */
 QLabel {
@@ -4069,7 +4961,7 @@ QLabel.icon {
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_38" stretch="1,1,1">
                    <item>
-                    <widget class="QLabel" name="lb_xiangsudangliang_3">
+                    <widget class="QLabel" name="lb_xiangsudangliang2">
                      <property name="styleSheet">
                       <string notr="true">/* 基础标签样式 */
 QLabel {
@@ -4194,7 +5086,7 @@ QPushButton:pressed {
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="lb_xiangsudangliangUnit_3">
+                    <widget class="QLabel" name="lb_xiangsudangliangUnit2">
                      <property name="styleSheet">
                       <string notr="true">/* 基础标签样式 */
 QLabel {

@@ -44,11 +44,15 @@ private slots:
 
 	void btn_shangxianwei1_clicked();
 	void btn_xiaxianwei1_clicked();
+	void btn_zuoxianwei1_clicked();
+	void btn_youxianwei1_clicked();
 	void btn_baoguang1_clicked();
 	void btn_zengyi1_clicked();
 	void btn_xiangsudangliang1_clicked();
 	void btn_shangxianwei2_clicked();
 	void btn_xiaxianwei2_clicked();
+	void btn_zuoxianwei2_clicked();
+	void btn_youxianwei2_clicked();
 	void btn_baoguang2_clicked();
 	void btn_zengyi2_clicked();
 	void btn_xiangsudangliang2_clicked();
