@@ -1,0 +1,40 @@
+#include <string>
+
+namespace cdm {
+	class SetConfig
+	{
+	public:
+		jishuguangdianyanshi : double : default = 0;
+		paizhaoyanshi : double : default = 0;
+		cipinguangdianjiange : int : default = 0;
+		fenliaojishu : double : default = 0;
+		xiangjiguangdianpingbishijian : double : default = 0;
+		defectIgnoreX : double : default = 0;
+		defectIgnoreY : double : default = 0;
+		tifeijiange1 : int : default = 0;
+		tifeijiange2 : int : default = 0;
+
+		shangxianwei1 : double : default = 0;
+		xiaxianwei1 : double : default = 0;
+		baoguang1 : double : default = 0;
+		zengyi1 : double : default = 0;
+		xiangsudangliang1 : double : default = 0;
+
+		shangxianwei2 : double : default = 0;
+		xiaxianwei2 : double : default = 0;
+		baoguang2 : double : default = 0;
+		zengyi2 : double : default = 0;
+		xiangsudangliang2 : double : default = 0;
+
+		isZangWu : bool :default = false;
+		isXiaoZangWu : bool :default = false;
+		isJieTou : bool :default = false;
+		isBody : bool :default = false;
+		isHuaPo : bool :default = false;
+		isSiLie : bool :default = false;
+		isQueShi : bool :default = false;
+		isWeiZhiQueXian : bool :default = false;
+
+		changeLanguageIndex : int : default = 0;
+	};
+}
