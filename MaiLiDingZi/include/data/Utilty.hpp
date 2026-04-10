@@ -6,18 +6,18 @@
 inline struct GlobalPath
 {
 public:
-	QString projectHome = R"(D:\zfkjData\QiXinShiJinShuangXiangJi\)";
+	QString projectHome = R"(D:\zfkjData\MaiLiDingZi\)";
 public:
 	QString configRootPath = projectHome + R"(config\)";
 	QString modelRootPath = projectHome + R"(model\)";
-	QString qiXinShiJinShuangXiangJiConfigPath = configRootPath + R"(QiXinShiJinShuangXiangJiConfig.xml)";
+	QString maiLiDingZiConfigPath = configRootPath + R"(MaiLiDingZiConfig.xml)";
 	QString setConfigPath = configRootPath + R"(SetConfig.xml)";
 	QString scoreConfigPath = configRootPath + R"(ScoreConfig.xml)";
-	QString modelPath = modelRootPath + R"(QiXinShiJinWetPapers.engine)";
+	QString modelPath = modelRootPath + R"(MaiLiDingZi.engine)";
 public:
 	QString imageSaveRootPath = R"(D:\Images\)";
 public:
-	QString testImgDirPath = R"(D:\ImgStorage\WetPapers)";
+	QString testImgDirPath = R"(D:\ImgStorage\MaiLiDingZi)";
 }globalPath;
 
 struct ClassId

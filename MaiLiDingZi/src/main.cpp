@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
 	Modules::getInstance().build();
 
 	MaiLiDingZi w;
-	Modules::getInstance().uiModule._qiXinShiJinShuangXiangJi = &w;
+	Modules::getInstance().uiModule._maiLiDingZi = &w;
 	Modules::getInstance().connect();
 	Modules::getInstance().start();
 

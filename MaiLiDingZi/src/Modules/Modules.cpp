@@ -3,7 +3,6 @@
 #include <QDir>
 #include <QMessageBox>
 
-#include "DlgProductScore.h"
 #include "DlgProductSet.h"
 #include "MaiLiDingZi.h"
 #include "QiXinShiJinShuangXiangJi.hpp"
@@ -125,28 +124,26 @@ void Modules::connect()
 
 #pragma region connect UIModule and ReconnectModule
 	QObject::connect(reconnectModule.monitorCameraAndCardStateThread.get(), &CameraAndCardStateThread::updateCameraLabelState,
-		uiModule._qiXinShiJinShuangXiangJi, &MaiLiDingZi::updateCameraLabelState);
+		uiModule._maiLiDingZi, &MaiLiDingZi::updateCameraLabelState);
 #pragma endregion
 
 #pragma region connect UIModule and imgProModule
 	QObject::connect(imgProModule.imageProcessingModule1.get(), &ImageProcessingModule::imageReady,
-		uiModule._qiXinShiJinShuangXiangJi, &MaiLiDingZi::onCameraDisplay);
+		uiModule._maiLiDingZi, &MaiLiDingZi::onCameraDisplay);
 	QObject::connect(imgProModule.imageProcessingModule2.get(), &ImageProcessingModule::imageReady,
-		uiModule._qiXinShiJinShuangXiangJi, &MaiLiDingZi::onCameraDisplay);
+		uiModule._maiLiDingZi, &MaiLiDingZi::onCameraDisplay);
 
-	QObject::connect(uiModule._qiXinShiJinShuangXiangJi, &MaiLiDingZi::shibiekuangChanged,
+	QObject::connect(uiModule._maiLiDingZi, &MaiLiDingZi::shibiekuangChanged,
 		&imgProModule, &ImgProModule::onUpdateImgProContext);
-	QObject::connect(uiModule._qiXinShiJinShuangXiangJi, &MaiLiDingZi::wenziChanged,
+	QObject::connect(uiModule._maiLiDingZi, &MaiLiDingZi::wenziChanged,
 		&imgProModule, &ImgProModule::onUpdateImgProContext);
 	QObject::connect(uiModule._dlgProductSet,&DlgProductSet::paramsChanged,
-		&imgProModule, &ImgProModule::onUpdateImgProContext);
-	QObject::connect(uiModule._dlgProductScore, &DlgProductScore::scoreFormClosed,
 		&imgProModule, &ImgProModule::onUpdateImgProContext);
 #pragma endregion
 
 #pragma region connect UIModules
 	QObject::connect(uiModule._dlgProductSet, &DlgProductSet::emit_changeLanguage,
-		uiModule._qiXinShiJinShuangXiangJi, &MaiLiDingZi::changeLanguage);
+		uiModule._maiLiDingZi, &MaiLiDingZi::changeLanguage);
 #pragma endregion
 
 #pragma region connect camera and ReconnectModule
@@ -168,7 +165,7 @@ void Modules::connect()
 
 #pragma region connect UIModule and RuntimeInfoModule
 	QObject::connect(runtimeInfoModule.detachUtiltyThread.get(), &DetachUtiltyThread::updateStatisticalInfo,
-		uiModule._qiXinShiJinShuangXiangJi, &MaiLiDingZi::onUpdateStatisticalInfoUI, Qt::QueuedConnection);
+		uiModule._maiLiDingZi, &MaiLiDingZi::onUpdateStatisticalInfoUI, Qt::QueuedConnection);
 #pragma endregion
 
 #ifdef BUILD_WITHOUT_HARDWARE
@@ -220,7 +217,7 @@ bool Modules::check()
 #pragma region check config format and exist
 	rw::oso::StorageContext storageContext(rw::oso::StorageType::Xml);
 
-	checkFileExistAndFormat<cdm::QiXinShiJinShuangXiangJiConfig>(globalPath.qiXinShiJinShuangXiangJiConfigPath, storageContext);
+	checkFileExistAndFormat<cdm::QiXinShiJinShuangXiangJiConfig>(globalPath.maiLiDingZiConfigPath, storageContext);
 	checkFileExistAndFormat<cdm::SetConfig>(globalPath.setConfigPath, storageContext);
 	checkFileExistAndFormat<cdm::ScoreConfig>(globalPath.scoreConfigPath, storageContext);
 #pragma endregion

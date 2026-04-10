@@ -6,7 +6,6 @@
 
 class MaiLiDingZi;
 class DlgProductSet;
-class DlgProductScore;
 
 class UIModule
 	: public QObject, public IModule<void>
@@ -18,14 +17,8 @@ public:
 	void start() override;
 	void stop() override;
 public:
-	void ini_dlgProductScoreGroupList();
-	void ini_dlgProductSetCheckList();
-	void connectSetAndScore();
+
 public:
 	DlgProductSet* _dlgProductSet = nullptr;
-	MaiLiDingZi* _qiXinShiJinShuangXiangJi = nullptr;
-	DlgProductScore* _dlgProductScore = nullptr;
-
-	QVector<QCheckBox*> _dlgProductSetCheckList{};
-	QVector<QWidget*> _dlgProductScoreGroupList{};
+	MaiLiDingZi* _maiLiDingZi = nullptr;
 };
