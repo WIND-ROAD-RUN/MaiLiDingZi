@@ -86,7 +86,6 @@ void MaiLiDingZi::build_MaiLiDingZiData()
 	maiLiDingZiConfig.isSaveImg = false;	// 默认不开启图片保存
 	ui->ckb_saveImg->setChecked(false);
 
-	ui->label_produceTotalValue->setText(QString::number(maiLiDingZiConfig.totalProductionVolume));
 	ui->label_wasteProductsValue->setText(QString::number(maiLiDingZiConfig.totalDefectiveVolume));
 	ui->rbtn_removeFunc->setChecked(maiLiDingZiConfig.isDefect);
 
@@ -148,7 +147,6 @@ void MaiLiDingZi::changeLanguage(int index)
 		ui->label_cameraStateTitle->setText("相机状态");
 		ui->label_info->setText("统计信息");
 		ui->pbtn_resetProduct->setText("产量清零");
-		ui->label_produceTotal->setText("生产总量");
 		ui->label_wasteProducts->setText("废品总量");
 		ui->rbtn_debug->setText("调试模式");
 		ui->rbtn_removeFunc->setText("剔除功能");
@@ -169,7 +167,6 @@ void MaiLiDingZi::changeLanguage(int index)
 		// 统计区
 		ui->label_info->setText("Statistics");
 		ui->pbtn_resetProduct->setText("Clear Count");
-		ui->label_produceTotal->setText("Total Output");
 		ui->label_wasteProducts->setText("Total Rejects");
 
 		// 模式/功能
@@ -245,7 +242,6 @@ void MaiLiDingZi::updateCameraLabelState(int cameraIndex, bool state)
 void MaiLiDingZi::onUpdateStatisticalInfoUI()
 {
 	auto& statisticalInfo = Modules::getInstance().runtimeInfoModule.statisticalInfo;
-	ui->label_produceTotalValue->setText(QString::number(statisticalInfo.produceCount.load()));
 	ui->label_wasteProductsValue->setText(QString::number(statisticalInfo.wasteCount.load()));
 }
 
@@ -345,7 +341,6 @@ void MaiLiDingZi::pbtn_resetProduct_clicked()
 {
 	auto& maiLiDingZiConfig = Modules::getInstance().configManagerModule.maiLiDingZiConfig;
 
-	maiLiDingZiConfig.totalProductionVolume = 0;
 	maiLiDingZiConfig.totalDefectiveVolume = 0;
 
 	onUpdateStatisticalInfoUI();

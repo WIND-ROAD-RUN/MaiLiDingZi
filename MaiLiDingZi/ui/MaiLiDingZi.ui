@@ -294,7 +294,7 @@ QGroupBox::title {
           <property name="title">
            <string/>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout" stretch="1,2,2,2,1,0,0">
+          <layout class="QVBoxLayout" name="verticalLayout" stretch="1,2,2,1,1,1">
            <item>
             <layout class="QHBoxLayout" name="hLayout_info" stretch="1,1">
              <item>
@@ -346,51 +346,6 @@ QPushButton:pressed {
                </property>
                <property name="text">
                 <string>产量清零</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="hLayout_produceTotal" stretch="1,2">
-             <item>
-              <widget class="QLabel" name="label_produceTotal">
-               <property name="font">
-                <font>
-                 <pointsize>-1</pointsize>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QLabel {
-       font-size: 24px;        
-       font-weight: bold;        
-       color:  rgb(141, 141, 141);       
-       padding: 5px 5px;     
-       border-bottom: 2px solid #cccccc; 
-    }</string>
-               </property>
-               <property name="text">
-                <string>生产总量</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_produceTotalValue">
-               <property name="styleSheet">
-                <string notr="true">QLabel {
-       font-size: 24px;        
-       font-weight: bold;        
-       color:  rgb(89, 89, 89);       
-       padding: 5px 5px;     
-       border-bottom: 2px solid #cccccc; 
-    }</string>
-               </property>
-               <property name="text">
-                <string>0</string>
                </property>
               </widget>
              </item>

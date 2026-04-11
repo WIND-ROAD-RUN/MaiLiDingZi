@@ -24,7 +24,6 @@ public:
 public:
 	struct StatisticalInfo
 	{
-		std::atomic_uint64_t produceCount{ 0 };
 		std::atomic_uint64_t wasteCount{ 0 };
 	} statisticalInfo;
 public:

@@ -19,7 +19,6 @@ namespace cdm {
         bool operator!=(const MaiLiDingZiConfig& obj) const;
 
     public:
-        int totalProductionVolume{ 0 };
         int totalDefectiveVolume{ 0 };
         bool isDebug{ false };
         bool isDefect{ false };
@@ -33,11 +32,6 @@ namespace cdm {
         {
             throw std::runtime_error("Assembly is not $class$MaiLiDingZiConfig$");
         }
-        auto totalProductionVolumeItem = rw::oso::ObjectStoreCoreToItem(assembly.getItem("$variable$totalProductionVolume$"));
-        if (!totalProductionVolumeItem) {
-            throw std::runtime_error("$variable$totalProductionVolume is not found");
-        }
-        totalProductionVolume = totalProductionVolumeItem->getValueAsInt();
         auto totalDefectiveVolumeItem = rw::oso::ObjectStoreCoreToItem(assembly.getItem("$variable$totalDefectiveVolume$"));
         if (!totalDefectiveVolumeItem) {
             throw std::runtime_error("$variable$totalDefectiveVolume is not found");
@@ -62,7 +56,6 @@ namespace cdm {
 
     inline MaiLiDingZiConfig::MaiLiDingZiConfig(const MaiLiDingZiConfig& obj)
     {
-        totalProductionVolume = obj.totalProductionVolume;
         totalDefectiveVolume = obj.totalDefectiveVolume;
         isDebug = obj.isDebug;
         isDefect = obj.isDefect;
@@ -72,7 +65,6 @@ namespace cdm {
     inline MaiLiDingZiConfig& MaiLiDingZiConfig::operator=(const MaiLiDingZiConfig& obj)
     {
         if (this != &obj) {
-            totalProductionVolume = obj.totalProductionVolume;
             totalDefectiveVolume = obj.totalDefectiveVolume;
             isDebug = obj.isDebug;
             isDefect = obj.isDefect;
@@ -85,10 +77,6 @@ namespace cdm {
     {
         rw::oso::ObjectStoreAssembly assembly;
         assembly.setName("$class$MaiLiDingZiConfig$");
-        auto totalProductionVolumeItem = std::make_shared<rw::oso::ObjectStoreItem>();
-        totalProductionVolumeItem->setName("$variable$totalProductionVolume$");
-        totalProductionVolumeItem->setValueFromInt(totalProductionVolume);
-        assembly.addItem(totalProductionVolumeItem);
         auto totalDefectiveVolumeItem = std::make_shared<rw::oso::ObjectStoreItem>();
         totalDefectiveVolumeItem->setName("$variable$totalDefectiveVolume$");
         totalDefectiveVolumeItem->setValueFromInt(totalDefectiveVolume);
@@ -110,7 +98,7 @@ namespace cdm {
 
     inline bool MaiLiDingZiConfig::operator==(const MaiLiDingZiConfig& obj) const
     {
-        return totalProductionVolume == obj.totalProductionVolume && totalDefectiveVolume == obj.totalDefectiveVolume && isDebug == obj.isDebug && isDefect == obj.isDefect && isSaveImg == obj.isSaveImg;
+        return totalDefectiveVolume == obj.totalDefectiveVolume && isDebug == obj.isDebug && isDefect == obj.isDefect && isSaveImg == obj.isSaveImg;
     }
 
     inline bool MaiLiDingZiConfig::operator!=(const MaiLiDingZiConfig& obj) const

@@ -4,7 +4,6 @@ namespace cdm {
 	class MaiLiDingZiConfig
 	{
 	public:
-		totalProductionVolume : int :default = 0;
 		totalDefectiveVolume : int :default = 0;
 		isDebug : bool :default = false;
 		isDefect : bool :default = false;
