@@ -70,6 +70,8 @@ void MaiLiDingZi::build_connect()
 		this, &MaiLiDingZi::rbtn_removeFunc_checked);
 	QObject::connect(ui->pbtn_resetProduct, &QPushButton::clicked,
 		this, &MaiLiDingZi::pbtn_resetProduct_clicked);
+	QObject::connect(ui->ckb_saveImg, &QCheckBox::clicked,
+		this, &MaiLiDingZi::ckb_saveImg_checked);
 	// 连接显示标题
 	QObject::connect(clickableTitle, &rw::rqw::ClickableLabel::clicked,
 		this, &MaiLiDingZi::lb_title_clicked);
@@ -81,6 +83,8 @@ void MaiLiDingZi::build_MaiLiDingZiData()
 	auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
 	maiLiDingZiConfig.isDebug = false;
 	maiLiDingZiConfig.isDefect = true;		// 默认开启剔废
+	maiLiDingZiConfig.isSaveImg = false;	// 默认不开启图片保存
+	ui->ckb_saveImg->setChecked(false);
 
 	ui->label_produceTotalValue->setText(QString::number(maiLiDingZiConfig.totalProductionVolume));
 	ui->label_wasteProductsValue->setText(QString::number(maiLiDingZiConfig.totalDefectiveVolume));
@@ -345,4 +349,10 @@ void MaiLiDingZi::pbtn_resetProduct_clicked()
 	maiLiDingZiConfig.totalDefectiveVolume = 0;
 
 	onUpdateStatisticalInfoUI();
+}
+
+void MaiLiDingZi::ckb_saveImg_checked(bool checked)
+{
+	auto& maiLiDingZiConfig = Modules::getInstance().configManagerModule.maiLiDingZiConfig;
+	maiLiDingZiConfig.isSaveImg = checked;
 }

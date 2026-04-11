@@ -166,7 +166,7 @@ void Modules::connect()
 bool Modules::check()
 {
 #pragma region check single instance
-	if (!rw::rqw::RunEnvCheck::isSingleInstance("QiXinShiJinWetPapers.exe"))
+	if (!rw::rqw::RunEnvCheck::isSingleInstance("MaiLiDingZi.exe"))
 	{
 		QMessageBox::warning(nullptr, "错误", "已经有程序在运行，请勿多次打开");
 		return false;
@@ -191,6 +191,7 @@ bool Modules::check()
 	EnsureDirectoryExists(globalPath.projectHome);
 	EnsureDirectoryExists(globalPath.configRootPath);
 	EnsureDirectoryExists(globalPath.modelRootPath);
+	EnsureDirectoryExists(globalPath.imageSaveRootPath);
 #pragma endregion
 
 #pragma region check model exist

@@ -101,6 +101,9 @@ void ImageProcessor::run_OpenRemoveFunc(MatInfo& frame)
 	run_OpenRemoveFunc_emitErrorInfo(defectResult.isBad);
 
 	emit imageReady(frame.index,QPixmap::fromImage(maskImg));
+
+	rw::rqw::ImageInfo imageInfo(rw::rqw::cvMatToQImage(frame.image));
+	save_image(imageInfo, maskImg);
 }
 
 void ImageProcessor::run_OpenRemoveFunc_emitErrorInfo(bool isbad)
@@ -115,6 +118,23 @@ void ImageProcessor::run_OpenRemoveFunc_emitErrorInfo(bool isbad)
 		{
 			Modules::getInstance().eliminateModule.productPriorityQueue2->push(true);
 		}
+	}
+}
+
+void ImageProcessor::save_image(rw::rqw::ImageInfo& imageInfo, const QImage& image)
+{
+	save_image_work(imageInfo, image);
+}
+
+void ImageProcessor::save_image_work(rw::rqw::ImageInfo& imageInfo, const QImage& image)
+{
+	auto& imageSaveEngine = Modules::getInstance().imgSaveModule.imageSaveEngine;
+	auto& config = Modules::getInstance().configManagerModule.maiLiDingZiConfig;
+
+	if (config.isSaveImg)
+	{
+		imageInfo.classify = "NG";
+		imageSaveEngine->pushImage(imageInfo);
 	}
 }
 

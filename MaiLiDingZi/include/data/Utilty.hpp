@@ -14,7 +14,7 @@ public:
 	QString setConfigPath = configRootPath + R"(SetConfig.xml)";
 	QString modelPath = modelRootPath + R"(MaiLiDingZi.engine)";
 public:
-	QString imageSaveRootPath = R"(D:\Images\)";
+	QString imageSaveRootPath = projectHome + R"(savedImages\)";
 public:
 	QString testImgDirPath = R"(D:\ImgStorage\MaiLiDingZi)";
 }globalPath;

@@ -11,6 +11,7 @@
 #include <QPixmap>
 #include <imgPro_ImageProcess.hpp>
 #include "rqw_CameraObjectCore.hpp"
+#include "rqw_ImageSaveEngine.h"
 #include "Utilty.hpp"
 
 
@@ -36,6 +37,10 @@ private:
 	void run_OpenRemoveFunc_emitErrorInfo(bool isbad);
 signals:
 	void imageReady(size_t index, QPixmap image);
+private:
+	// 存图
+	void save_image(rw::rqw::ImageInfo& imageInfo, const QImage& image);
+	void save_image_work(rw::rqw::ImageInfo& imageInfo, const QImage& image);
 private:
 	std::unique_ptr<rw::imgPro::ImageProcess> _imgProcess;
 public:

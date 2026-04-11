@@ -37,7 +37,6 @@ public:
 	void initializeComponents();
 public:
 	void build_camera();
-public:
 public slots:
 	void changeLanguage(int index);
 public slots:
@@ -54,7 +53,7 @@ private slots:
 	void rbtn_debug_checked(bool checked);
 	void rbtn_removeFunc_checked(bool checked);
 	void pbtn_resetProduct_clicked();
-
+	void ckb_saveImg_checked(bool checked);
 signals:
 	void shibiekuangChanged();
 	void wenziChanged();
