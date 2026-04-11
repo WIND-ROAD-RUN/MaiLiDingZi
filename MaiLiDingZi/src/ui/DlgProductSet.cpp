@@ -33,13 +33,9 @@ void DlgProductSet::read_config()
 	auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
 
 	// 普通参数
-	ui->btn_jishuguangdianyanshi->setText(QString::number(setConfig.jishuguangdianyanshi));
-	ui->btn_paizhaoyanshi->setText(QString::number(setConfig.paizhaoyanshi));
-	ui->btn_cipinguangdianjiange->setText(QString::number(setConfig.cipinguangdianjiange));
-	ui->btn_fenliaojishu->setText(QString::number(setConfig.fenliaojishu));
 	ui->btn_xiangjiguangdianpingbishijian->setText(QString::number(setConfig.xiangjiguangdianpingbishijian));
-	ui->btn_tifeijiange1->setText(QString::number(setConfig.tifeijiange1));
-	ui->btn_tifeijiange2->setText(QString::number(setConfig.tifeijiange2));
+	ui->btn_shuchuxinhaoyanshi->setText(QString::number(setConfig.shuchuxinhaoyanshi));
+	ui->btn_shuchuxinhaochixushijian->setText(QString::number(setConfig.shuchuxinhaochixushijian));
 
 	// 相机参数
 	ui->btn_shangxianwei1->setText(QString::number(setConfig.shangxianwei1));
@@ -76,13 +72,9 @@ void DlgProductSet::read_config()
 void DlgProductSet::build_connect()
 {
 	connect(ui->btn_close, &QPushButton::clicked, this, &DlgProductSet::btn_close_clicked);
-	connect(ui->btn_jishuguangdianyanshi, &QPushButton::clicked, this, &DlgProductSet::btn_jishuguangdianyanshi_clicked);
-	connect(ui->btn_paizhaoyanshi, &QPushButton::clicked, this, &DlgProductSet::btn_paizhaoyanshi_clicked);
-	connect(ui->btn_cipinguangdianjiange, &QPushButton::clicked, this, &DlgProductSet::btn_cipinguangdianjiange_clicked);
-	connect(ui->btn_fenliaojishu, &QPushButton::clicked, this, &DlgProductSet::btn_fenliaojishu_clicked);
 	connect(ui->btn_xiangjiguangdianpingbishijian, &QPushButton::clicked, this, &DlgProductSet::btn_xiangjiguangdianpingbishijian_clicked);
-	connect(ui->btn_tifeijiange1, &QPushButton::clicked, this, &DlgProductSet::btn_tifeijiange1_clicked);
-	connect(ui->btn_tifeijiange2, &QPushButton::clicked, this, &DlgProductSet::btn_tifeijiange2_clicked);
+	connect(ui->btn_shuchuxinhaoyanshi, &QPushButton::clicked, this, &DlgProductSet::btn_shuchuxinhaoyanshi_clicked);
+	connect(ui->btn_shuchuxinhaochixushijian, &QPushButton::clicked, this, &DlgProductSet::btn_shuchuxinhaochixushijian_clicked);
 	connect(ui->btn_testTrigger1_1, &QPushButton::clicked, this, &DlgProductSet::btn_testTrigger1_1_clicked);
 	connect(ui->btn_testTrigger2_1, &QPushButton::clicked, this, &DlgProductSet::btn_testTrigger2_1_clicked);
 	connect(ui->btn_testTrigger1_2, &QPushButton::clicked, this, &DlgProductSet::btn_testTrigger1_2_clicked);
@@ -117,19 +109,8 @@ void DlgProductSet::changeLanguage(int index)
 	// 中文
 	if (0 == index)
 	{
-		ui->lb_jishuguangdianyanshi->setText("计数光电延时");
-		ui->lb_cipinguangdianjiange->setText("次品光电间隔");
-		ui->lb_cipinguangdianjiangeUnit->setText("个");
 		ui->lb_xiangjiguangdianpingbishijian->setText("相机光电屏蔽时间");
 		ui->lb_xiangsudangliang1->setText("像素当量");
-		ui->lb_paizhaoyanshi->setText("拍照延时");
-		ui->lb_fenliaojishu->setText("分料计数");
-		ui->lb_fenliaojishuUnit->setText("个");
-
-		ui->lb_tifeijiange1->setText("一相机剔废间隔");
-		ui->lb_tifeijiange2->setText("二相机剔废间隔");
-		ui->lb_tifeijiange1Unit->setText("个");
-		ui->lb_tifeijiange2Unit->setText("个");
 
 		ui->lb_shangxianwei1->setText("上限位");
 		ui->lb_xiaxianwei1->setText("下限位");
@@ -139,8 +120,6 @@ void DlgProductSet::changeLanguage(int index)
 		ui->lb_changeLanguage->setText("切换语言");
 
 		ui->lb_xiangjiguangdianpingbishijianUnit->setText("ms");
-		ui->lb_jishuguangdianyanshiUnit->setText("ms");
-		ui->lb_paizhaoyanshiUnit->setText("ms");
 
 		ui->lb_shangxianweiUnit1->setText("Pix");
 		ui->lb_xiaxianweiUnit1->setText("Pix");
@@ -168,19 +147,8 @@ void DlgProductSet::changeLanguage(int index)
 	else if (1 == index)
 	{
 		// 参数页（顶部）
-		ui->lb_jishuguangdianyanshi->setText("Count sensor delay");
-		ui->lb_cipinguangdianjiange->setText("Reject sensor interval");
-		ui->lb_cipinguangdianjiangeUnit->setText("pcs");
 		ui->lb_xiangjiguangdianpingbishijian->setText("Camera sensor mask time");
 		ui->lb_xiangsudangliang1->setText("Pixel size");
-		ui->lb_paizhaoyanshi->setText("Capture delay");
-		ui->lb_fenliaojishu->setText("Feeding count");
-		ui->lb_fenliaojishuUnit->setText("pcs");
-
-		ui->lb_tifeijiange1->setText("Camera 1 reject interval");
-		ui->lb_tifeijiange2->setText("Camera 2 reject interval");
-		ui->lb_tifeijiange1Unit->setText("pcs");
-		ui->lb_tifeijiange2Unit->setText("pcs");
 
 		// 相机参数通用 label（tab 内 Camera 1）
 		ui->lb_shangxianwei1->setText("Upper limit");
@@ -192,8 +160,6 @@ void DlgProductSet::changeLanguage(int index)
 		ui->lb_changeLanguage->setText("Language");
 
 		ui->lb_xiangjiguangdianpingbishijianUnit->setText("ms");
-		ui->lb_jishuguangdianyanshiUnit->setText("ms");
-		ui->lb_paizhaoyanshiUnit->setText("ms");
 
 		ui->lb_shangxianweiUnit1->setText("px");
 		ui->lb_xiaxianweiUnit1->setText("px");
@@ -232,82 +198,6 @@ void DlgProductSet::btn_close_clicked()
 	this->close();
 }
 
-void DlgProductSet::btn_jishuguangdianyanshi_clicked()
-{
-	NumberKeyboard numKeyBord;
-	numKeyBord.setWindowFlags(Qt::Window | Qt::CustomizeWindowHint);
-	auto isAccept = numKeyBord.exec();
-	if (isAccept == QDialog::Accepted)
-	{
-		auto value = numKeyBord.getValue();
-		if (value.toDouble() < 0)
-		{
-			QMessageBox::warning(this, "提示", "请输入大于等于0的数值");
-			return;
-		}
-		auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
-		ui->btn_jishuguangdianyanshi->setText(value);
-		setConfig.jishuguangdianyanshi = value.toDouble();
-	}
-}
-
-void DlgProductSet::btn_paizhaoyanshi_clicked()
-{
-	NumberKeyboard numKeyBord;
-	numKeyBord.setWindowFlags(Qt::Window | Qt::CustomizeWindowHint);
-	auto isAccept = numKeyBord.exec();
-	if (isAccept == QDialog::Accepted)
-	{
-		auto value = numKeyBord.getValue();
-		if (value.toDouble() < 0)
-		{
-			QMessageBox::warning(this, "提示", "请输入大于等于0的数值");
-			return;
-		}
-		auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
-		ui->btn_paizhaoyanshi->setText(value);
-		setConfig.paizhaoyanshi = value.toDouble();
-	}
-}
-
-void DlgProductSet::btn_cipinguangdianjiange_clicked()
-{
-	NumberKeyboard numKeyBord;
-	numKeyBord.setWindowFlags(Qt::Window | Qt::CustomizeWindowHint);
-	auto isAccept = numKeyBord.exec();
-	if (isAccept == QDialog::Accepted)
-	{
-		auto value = numKeyBord.getValue();
-		if (value.toDouble() < 0)
-		{
-			QMessageBox::warning(this, "提示", "请输入大于等于0的数值");
-			return;
-		}
-		auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
-		ui->btn_cipinguangdianjiange->setText(value);
-		setConfig.cipinguangdianjiange = value.toDouble();
-	}
-}
-
-void DlgProductSet::btn_fenliaojishu_clicked()
-{
-	NumberKeyboard numKeyBord;
-	numKeyBord.setWindowFlags(Qt::Window | Qt::CustomizeWindowHint);
-	auto isAccept = numKeyBord.exec();
-	if (isAccept == QDialog::Accepted)
-	{
-		auto value = numKeyBord.getValue();
-		if (value.toDouble() < 0)
-		{
-			QMessageBox::warning(this, "提示", "请输入大于等于0的数值");
-			return;
-		}
-		auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
-		ui->btn_fenliaojishu->setText(value);
-		setConfig.fenliaojishu = value.toDouble();
-	}
-}
-
 void DlgProductSet::btn_xiangjiguangdianpingbishijian_clicked()
 {
 	NumberKeyboard numKeyBord;
@@ -327,7 +217,7 @@ void DlgProductSet::btn_xiangjiguangdianpingbishijian_clicked()
 	}
 }
 
-void DlgProductSet::btn_tifeijiange1_clicked()
+void DlgProductSet::btn_shuchuxinhaoyanshi_clicked()
 {
 	NumberKeyboard numKeyBord;
 	numKeyBord.setWindowFlags(Qt::Window | Qt::CustomizeWindowHint);
@@ -341,12 +231,12 @@ void DlgProductSet::btn_tifeijiange1_clicked()
 			return;
 		}
 		auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
-		ui->btn_tifeijiange1->setText(value);
-		setConfig.tifeijiange1 = value.toDouble();
+		ui->btn_shuchuxinhaoyanshi->setText(value);
+		setConfig.shuchuxinhaoyanshi = value.toDouble();
 	}
 }
 
-void DlgProductSet::btn_tifeijiange2_clicked()
+void DlgProductSet::btn_shuchuxinhaochixushijian_clicked()
 {
 	NumberKeyboard numKeyBord;
 	numKeyBord.setWindowFlags(Qt::Window | Qt::CustomizeWindowHint);
@@ -360,8 +250,8 @@ void DlgProductSet::btn_tifeijiange2_clicked()
 			return;
 		}
 		auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
-		ui->btn_tifeijiange2->setText(value);
-		setConfig.tifeijiange2 = value.toDouble();
+		ui->btn_shuchuxinhaochixushijian->setText(value);
+		setConfig.shuchuxinhaochixushijian = value.toDouble();
 	}
 }
 

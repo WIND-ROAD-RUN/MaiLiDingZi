@@ -29,13 +29,9 @@ public slots:
 private slots:
 	void btn_close_clicked();
 
-	void btn_jishuguangdianyanshi_clicked();
-	void btn_paizhaoyanshi_clicked();
-	void btn_cipinguangdianjiange_clicked();
-	void btn_fenliaojishu_clicked();
 	void btn_xiangjiguangdianpingbishijian_clicked();
-	void btn_tifeijiange1_clicked();
-	void btn_tifeijiange2_clicked();
+	void btn_shuchuxinhaoyanshi_clicked();
+	void btn_shuchuxinhaochixushijian_clicked();
 
 	void btn_testTrigger1_1_clicked();
 	void btn_testTrigger2_1_clicked();
