@@ -29,6 +29,7 @@ void DetachUtiltyThread::run()
 	static size_t s = 0;
 	while (running) {
 		QThread::sleep(1);
+		emit updateStatisticalInfo();
 		++s;
 		if (s == 300)
 		{
