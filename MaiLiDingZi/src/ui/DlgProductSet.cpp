@@ -54,15 +54,6 @@ void DlgProductSet::read_config()
 	ui->btn_zengyi2->setText(QString::number(setConfig.zengyi2));
 	ui->btn_xiangsudangliang2->setText(QString::number(setConfig.xiangsudangliang2));
 
-	ui->ckb_zangwu->setChecked(setConfig.isZangWu);
-	ui->ckb_xiaozangwu->setChecked(setConfig.isXiaoZangWu);
-	ui->ckb_jietou->setChecked(setConfig.isJieTou);
-	ui->ckb_body->setChecked(setConfig.isBody);
-	ui->ckb_huapo->setChecked(setConfig.isHuaPo);
-	ui->ckb_silie->setChecked(setConfig.isSiLie);
-	ui->ckb_queshi->setChecked(setConfig.isQueShi);
-	ui->ckb_weizhiquexian->setChecked(setConfig.isWeiZhiQueXian);
-
 	ui->cbox_changeLanguage->setCurrentIndex(setConfig.changeLanguageIndex);
 	changeLanguage(setConfig.changeLanguageIndex);
 
@@ -93,14 +84,6 @@ void DlgProductSet::build_connect()
 	connect(ui->btn_baoguang2, &QPushButton::clicked, this, &DlgProductSet::btn_baoguang2_clicked);
 	connect(ui->btn_zengyi2, &QPushButton::clicked, this, &DlgProductSet::btn_zengyi2_clicked);
 	connect(ui->btn_xiangsudangliang2, &QPushButton::clicked, this, &DlgProductSet::btn_xiangsudangliang2_clicked);
-	connect(ui->ckb_zangwu, &QCheckBox::toggled, this, &DlgProductSet::ckb_zangwu_checked);
-	connect(ui->ckb_xiaozangwu, &QCheckBox::toggled, this, &DlgProductSet::ckb_xiaozangwu_checked);
-	connect(ui->ckb_jietou, &QCheckBox::toggled, this, &DlgProductSet::ckb_jietou_checked);
-	connect(ui->ckb_body, &QCheckBox::toggled, this, &DlgProductSet::ckb_body_checked);
-	connect(ui->ckb_huapo, &QCheckBox::toggled, this, &DlgProductSet::ckb_huapo_checked);
-	connect(ui->ckb_silie, &QCheckBox::toggled, this, &DlgProductSet::ckb_silie_checked);
-	connect(ui->ckb_queshi, &QCheckBox::toggled, this, &DlgProductSet::ckb_queshi_checked);
-	connect(ui->ckb_weizhiquexian, &QCheckBox::toggled, this, &DlgProductSet::ckb_weizhiquexian_checked);
 	connect(ui->cbox_changeLanguage, &QComboBox::currentIndexChanged, this, &DlgProductSet::changeLanguage);
 }
 
@@ -611,52 +594,4 @@ void DlgProductSet::btn_xiangsudangliang2_clicked()
 		ui->btn_xiangsudangliang2->setText(value);
 		setConfig.xiangsudangliang2 = value.toDouble();
 	}
-}
-
-void DlgProductSet::ckb_zangwu_checked(bool isChecked)
-{
-	auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
-	setConfig.isZangWu = isChecked;
-}
-
-void DlgProductSet::ckb_xiaozangwu_checked(bool isChecked)
-{
-	auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
-	setConfig.isXiaoZangWu = isChecked;
-}
-
-void DlgProductSet::ckb_jietou_checked(bool isChecked)
-{
-	auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
-	setConfig.isJieTou = isChecked;
-}
-
-void DlgProductSet::ckb_body_checked(bool isChecked)
-{
-	auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
-	setConfig.isBody = isChecked;
-}
-
-void DlgProductSet::ckb_huapo_checked(bool isChecked)
-{
-	auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
-	setConfig.isHuaPo = isChecked;
-}
-
-void DlgProductSet::ckb_silie_checked(bool isChecked)
-{
-	auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
-	setConfig.isSiLie = isChecked;
-}
-
-void DlgProductSet::ckb_queshi_checked(bool isChecked)
-{
-	auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
-	setConfig.isQueShi = isChecked;
-}
-
-void DlgProductSet::ckb_weizhiquexian_checked(bool isChecked)
-{
-	auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
-	setConfig.isWeiZhiQueXian = isChecked;
 }

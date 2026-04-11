@@ -36,14 +36,6 @@ namespace cdm {
         double baoguang2{ 0 };
         double zengyi2{ 0 };
         double xiangsudangliang2{ 0 };
-        bool isZangWu{ false };
-        bool isXiaoZangWu{ false };
-        bool isJieTou{ false };
-        bool isBody{ false };
-        bool isHuaPo{ false };
-        bool isSiLie{ false };
-        bool isQueShi{ false };
-        bool isWeiZhiQueXian{ false };
         int changeLanguageIndex{ 0 };
     };
 
@@ -139,46 +131,6 @@ namespace cdm {
             throw std::runtime_error("$variable$xiangsudangliang2 is not found");
         }
         xiangsudangliang2 = xiangsudangliang2Item->getValueAsDouble();
-        auto isZangWuItem = rw::oso::ObjectStoreCoreToItem(assembly.getItem("$variable$isZangWu$"));
-        if (!isZangWuItem) {
-            throw std::runtime_error("$variable$isZangWu is not found");
-        }
-        isZangWu = isZangWuItem->getValueAsBool();
-        auto isXiaoZangWuItem = rw::oso::ObjectStoreCoreToItem(assembly.getItem("$variable$isXiaoZangWu$"));
-        if (!isXiaoZangWuItem) {
-            throw std::runtime_error("$variable$isXiaoZangWu is not found");
-        }
-        isXiaoZangWu = isXiaoZangWuItem->getValueAsBool();
-        auto isJieTouItem = rw::oso::ObjectStoreCoreToItem(assembly.getItem("$variable$isJieTou$"));
-        if (!isJieTouItem) {
-            throw std::runtime_error("$variable$isJieTou is not found");
-        }
-        isJieTou = isJieTouItem->getValueAsBool();
-        auto isBodyItem = rw::oso::ObjectStoreCoreToItem(assembly.getItem("$variable$isBody$"));
-        if (!isBodyItem) {
-            throw std::runtime_error("$variable$isBody is not found");
-        }
-        isBody = isBodyItem->getValueAsBool();
-        auto isHuaPoItem = rw::oso::ObjectStoreCoreToItem(assembly.getItem("$variable$isHuaPo$"));
-        if (!isHuaPoItem) {
-            throw std::runtime_error("$variable$isHuaPo is not found");
-        }
-        isHuaPo = isHuaPoItem->getValueAsBool();
-        auto isSiLieItem = rw::oso::ObjectStoreCoreToItem(assembly.getItem("$variable$isSiLie$"));
-        if (!isSiLieItem) {
-            throw std::runtime_error("$variable$isSiLie is not found");
-        }
-        isSiLie = isSiLieItem->getValueAsBool();
-        auto isQueShiItem = rw::oso::ObjectStoreCoreToItem(assembly.getItem("$variable$isQueShi$"));
-        if (!isQueShiItem) {
-            throw std::runtime_error("$variable$isQueShi is not found");
-        }
-        isQueShi = isQueShiItem->getValueAsBool();
-        auto isWeiZhiQueXianItem = rw::oso::ObjectStoreCoreToItem(assembly.getItem("$variable$isWeiZhiQueXian$"));
-        if (!isWeiZhiQueXianItem) {
-            throw std::runtime_error("$variable$isWeiZhiQueXian is not found");
-        }
-        isWeiZhiQueXian = isWeiZhiQueXianItem->getValueAsBool();
         auto changeLanguageIndexItem = rw::oso::ObjectStoreCoreToItem(assembly.getItem("$variable$changeLanguageIndex$"));
         if (!changeLanguageIndexItem) {
             throw std::runtime_error("$variable$changeLanguageIndex is not found");
@@ -205,14 +157,6 @@ namespace cdm {
         baoguang2 = obj.baoguang2;
         zengyi2 = obj.zengyi2;
         xiangsudangliang2 = obj.xiangsudangliang2;
-        isZangWu = obj.isZangWu;
-        isXiaoZangWu = obj.isXiaoZangWu;
-        isJieTou = obj.isJieTou;
-        isBody = obj.isBody;
-        isHuaPo = obj.isHuaPo;
-        isSiLie = obj.isSiLie;
-        isQueShi = obj.isQueShi;
-        isWeiZhiQueXian = obj.isWeiZhiQueXian;
         changeLanguageIndex = obj.changeLanguageIndex;
     }
 
@@ -236,14 +180,6 @@ namespace cdm {
             baoguang2 = obj.baoguang2;
             zengyi2 = obj.zengyi2;
             xiangsudangliang2 = obj.xiangsudangliang2;
-            isZangWu = obj.isZangWu;
-            isXiaoZangWu = obj.isXiaoZangWu;
-            isJieTou = obj.isJieTou;
-            isBody = obj.isBody;
-            isHuaPo = obj.isHuaPo;
-            isSiLie = obj.isSiLie;
-            isQueShi = obj.isQueShi;
-            isWeiZhiQueXian = obj.isWeiZhiQueXian;
             changeLanguageIndex = obj.changeLanguageIndex;
         }
         return *this;
@@ -321,38 +257,6 @@ namespace cdm {
         xiangsudangliang2Item->setName("$variable$xiangsudangliang2$");
         xiangsudangliang2Item->setValueFromDouble(xiangsudangliang2);
         assembly.addItem(xiangsudangliang2Item);
-        auto isZangWuItem = std::make_shared<rw::oso::ObjectStoreItem>();
-        isZangWuItem->setName("$variable$isZangWu$");
-        isZangWuItem->setValueFromBool(isZangWu);
-        assembly.addItem(isZangWuItem);
-        auto isXiaoZangWuItem = std::make_shared<rw::oso::ObjectStoreItem>();
-        isXiaoZangWuItem->setName("$variable$isXiaoZangWu$");
-        isXiaoZangWuItem->setValueFromBool(isXiaoZangWu);
-        assembly.addItem(isXiaoZangWuItem);
-        auto isJieTouItem = std::make_shared<rw::oso::ObjectStoreItem>();
-        isJieTouItem->setName("$variable$isJieTou$");
-        isJieTouItem->setValueFromBool(isJieTou);
-        assembly.addItem(isJieTouItem);
-        auto isBodyItem = std::make_shared<rw::oso::ObjectStoreItem>();
-        isBodyItem->setName("$variable$isBody$");
-        isBodyItem->setValueFromBool(isBody);
-        assembly.addItem(isBodyItem);
-        auto isHuaPoItem = std::make_shared<rw::oso::ObjectStoreItem>();
-        isHuaPoItem->setName("$variable$isHuaPo$");
-        isHuaPoItem->setValueFromBool(isHuaPo);
-        assembly.addItem(isHuaPoItem);
-        auto isSiLieItem = std::make_shared<rw::oso::ObjectStoreItem>();
-        isSiLieItem->setName("$variable$isSiLie$");
-        isSiLieItem->setValueFromBool(isSiLie);
-        assembly.addItem(isSiLieItem);
-        auto isQueShiItem = std::make_shared<rw::oso::ObjectStoreItem>();
-        isQueShiItem->setName("$variable$isQueShi$");
-        isQueShiItem->setValueFromBool(isQueShi);
-        assembly.addItem(isQueShiItem);
-        auto isWeiZhiQueXianItem = std::make_shared<rw::oso::ObjectStoreItem>();
-        isWeiZhiQueXianItem->setName("$variable$isWeiZhiQueXian$");
-        isWeiZhiQueXianItem->setValueFromBool(isWeiZhiQueXian);
-        assembly.addItem(isWeiZhiQueXianItem);
         auto changeLanguageIndexItem = std::make_shared<rw::oso::ObjectStoreItem>();
         changeLanguageIndexItem->setName("$variable$changeLanguageIndex$");
         changeLanguageIndexItem->setValueFromInt(changeLanguageIndex);
@@ -362,7 +266,7 @@ namespace cdm {
 
     inline bool SetConfig::operator==(const SetConfig& obj) const
     {
-        return xiangjiguangdianpingbishijian == obj.xiangjiguangdianpingbishijian && shuchuxinhaoyanshi == obj.shuchuxinhaoyanshi && shuchuxinhaochixushijian == obj.shuchuxinhaochixushijian && shangxianwei1 == obj.shangxianwei1 && xiaxianwei1 == obj.xiaxianwei1 && zuoxianwei1 == obj.zuoxianwei1 && youxianwei1 == obj.youxianwei1 && baoguang1 == obj.baoguang1 && zengyi1 == obj.zengyi1 && xiangsudangliang1 == obj.xiangsudangliang1 && shangxianwei2 == obj.shangxianwei2 && xiaxianwei2 == obj.xiaxianwei2 && zuoxianwei2 == obj.zuoxianwei2 && youxianwei2 == obj.youxianwei2 && baoguang2 == obj.baoguang2 && zengyi2 == obj.zengyi2 && xiangsudangliang2 == obj.xiangsudangliang2 && isZangWu == obj.isZangWu && isXiaoZangWu == obj.isXiaoZangWu && isJieTou == obj.isJieTou && isBody == obj.isBody && isHuaPo == obj.isHuaPo && isSiLie == obj.isSiLie && isQueShi == obj.isQueShi && isWeiZhiQueXian == obj.isWeiZhiQueXian && changeLanguageIndex == obj.changeLanguageIndex;
+        return xiangjiguangdianpingbishijian == obj.xiangjiguangdianpingbishijian && shuchuxinhaoyanshi == obj.shuchuxinhaoyanshi && shuchuxinhaochixushijian == obj.shuchuxinhaochixushijian && shangxianwei1 == obj.shangxianwei1 && xiaxianwei1 == obj.xiaxianwei1 && zuoxianwei1 == obj.zuoxianwei1 && youxianwei1 == obj.youxianwei1 && baoguang1 == obj.baoguang1 && zengyi1 == obj.zengyi1 && xiangsudangliang1 == obj.xiangsudangliang1 && shangxianwei2 == obj.shangxianwei2 && xiaxianwei2 == obj.xiaxianwei2 && zuoxianwei2 == obj.zuoxianwei2 && youxianwei2 == obj.youxianwei2 && baoguang2 == obj.baoguang2 && zengyi2 == obj.zengyi2 && xiangsudangliang2 == obj.xiangsudangliang2 && changeLanguageIndex == obj.changeLanguageIndex;
     }
 
     inline bool SetConfig::operator!=(const SetConfig& obj) const

@@ -53,15 +53,6 @@ private slots:
 	void btn_zengyi2_clicked();
 	void btn_xiangsudangliang2_clicked();
 
-	void ckb_zangwu_checked(bool isChecked);
-	void ckb_xiaozangwu_checked(bool isChecked);
-	void ckb_jietou_checked(bool isChecked);
-	void ckb_body_checked(bool isChecked);
-	void ckb_huapo_checked(bool isChecked);
-	void ckb_silie_checked(bool isChecked);
-	void ckb_queshi_checked(bool isChecked);
-	void ckb_weizhiquexian_checked(bool isChecked);
-
 public:
 	Ui::DlgProductSetClass* ui;
 };
