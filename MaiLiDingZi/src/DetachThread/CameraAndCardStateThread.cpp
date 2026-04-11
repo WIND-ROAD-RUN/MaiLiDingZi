@@ -32,7 +32,6 @@ void CameraAndCardStateThread::run()
 		QThread::msleep(2000);
 
 		check_cameraState();
-		check_cardState();
 
 		runtimeCounts++;
 		if (runtimeCounts == 4) {
@@ -103,9 +102,4 @@ void CameraAndCardStateThread::check_cameraState2()
 		emit updateCameraLabelState(2, false);
 		isUpdateState = false;
 	}
-}
-
-void CameraAndCardStateThread::check_cardState()
-{
-	
 }

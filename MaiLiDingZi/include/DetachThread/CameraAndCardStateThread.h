@@ -23,18 +23,14 @@ private:
 	void check_cameraState();
 	void check_cameraState1();
 	void check_cameraState2();
-
-	void check_cardState();
 signals:
 	void updateCameraLabelState(int cameraIndex, bool state);
-
 signals:
 	void buildCamera(int index);
 
 	void destroyCamera(int index);
 
 	void startMonitor(int index);
-
 private:
 	std::atomic<bool> running; // 使用原子变量保证线程安全
 };
