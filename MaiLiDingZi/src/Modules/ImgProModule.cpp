@@ -114,29 +114,13 @@ void ImgProModule::buildImgProContextPreProcess()
 				{
 					context.defectDrawCfg.textLocate = rw::imgPro::ConfigDrawRect::TextLocate::LeftTopIn;
 
-					if (maiLiDingZiConfig.isshibiekuang)
-					{
-						context.defectDrawCfg.isDrawDefects = true;
-						context.defectDrawCfg.isDrawDisableDefects = true;
-						context.defectDrawCfg.isDisAreaText = true;
-						context.defectDrawCfg.isDisScoreText = true;
-					}
-					else
-					{
-						context.defectDrawCfg.isDrawDefects = false;
-						context.defectDrawCfg.isDrawDisableDefects = false;
-						context.defectDrawCfg.isDisAreaText = false;
-						context.defectDrawCfg.isDisScoreText = false;
-					}
+					context.defectDrawCfg.isDrawDefects = true;
+					context.defectDrawCfg.isDrawDisableDefects = true;
+					context.defectDrawCfg.isDisAreaText = true;
+					context.defectDrawCfg.isDisScoreText = true;
 
-					if (maiLiDingZiConfig.iswenzi)
-					{
-						context.runTextCfg.isDrawExtraText = true;
-					}
-					else
-					{
-						context.runTextCfg.isDrawExtraText = false;
-					}
+					context.runTextCfg.isDrawExtraText = false;
+
 				}
 				else if (RunningState::OpenRemoveFunc == runningState)
 				{
@@ -174,7 +158,7 @@ void ImgProModule::buildImgProContextPreProcess()
 				limitRight = std::any_cast<int>(context.customFields["LimitRight"]);
 			}
 
-			if (-1 == limitTop || -1 == limitBottom  || -1 == limitLeft || -1 == limitRight)
+			if (-1 == limitTop || -1 == limitBottom || -1 == limitLeft || -1 == limitRight)
 			{
 				return false;
 			}
@@ -247,6 +231,8 @@ void ImgProModule::buildImgProContextPreProcess()
 
 			int limitTop{ 0 };
 			int limitBottom{ 0 };
+			int limitLeft{ 0 };
+			int limitRight{ 0 };
 
 			if (context.customFields.find("LimitTop") != context.customFields.end()) {
 				limitTop = std::any_cast<int>(context.customFields["LimitTop"]);
@@ -254,15 +240,25 @@ void ImgProModule::buildImgProContextPreProcess()
 			if (context.customFields.find("LimitBottom") != context.customFields.end()) {
 				limitBottom = std::any_cast<int>(context.customFields["LimitBottom"]);
 			}
+			if (context.customFields.find("LimitLeft") != context.customFields.end()) {
+				limitLeft = std::any_cast<int>(context.customFields["LimitLeft"]);
+			}
+			if (context.customFields.find("LimitRight") != context.customFields.end()) {
+				limitRight = std::any_cast<int>(context.customFields["LimitRight"]);
+			}
 
 			rw::imgPro::ConfigDrawLine configDrawLine;
 			configDrawLine.color = rw::imgPro::Color::Red;
-			configDrawLine.thickness = 20;
+			configDrawLine.thickness = 5;
 
 			configDrawLine.position = limitTop;
 			rw::imgPro::ImagePainter::drawHorizontalLine(img, configDrawLine);
 			configDrawLine.position = limitBottom;
 			rw::imgPro::ImagePainter::drawHorizontalLine(img, configDrawLine);
+			configDrawLine.position = limitLeft;
+			rw::imgPro::ImagePainter::drawVerticalLine(img, configDrawLine);
+			configDrawLine.position = limitRight;
+			rw::imgPro::ImagePainter::drawVerticalLine(img, configDrawLine);
 		};
 #pragma endregion
 

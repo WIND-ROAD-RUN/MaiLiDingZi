@@ -68,10 +68,6 @@ void MaiLiDingZi::build_connect()
 		this, &MaiLiDingZi::rbtn_debug_checked);
 	QObject::connect(ui->rbtn_removeFunc, &QRadioButton::clicked,
 		this, &MaiLiDingZi::rbtn_removeFunc_checked);
-	QObject::connect(ui->ckb_shibiekuang, &QCheckBox::clicked,
-		this, &MaiLiDingZi::ckb_shibiekuang_checked);
-	QObject::connect(ui->ckb_wenzi, &QCheckBox::clicked,
-		this, &MaiLiDingZi::ckb_wenzi_checked);
 	QObject::connect(ui->pbtn_resetProduct, &QPushButton::clicked,
 		this, &MaiLiDingZi::pbtn_resetProduct_clicked);
 	// 连接显示标题
@@ -81,19 +77,14 @@ void MaiLiDingZi::build_connect()
 
 void MaiLiDingZi::build_MaiLiDingZiData()
 {
-	auto& qiXinShiJinDanXiangJiConfig = Modules::getInstance().configManagerModule.maiLiDingZiConfig;
+	auto& maiLiDingZiConfig = Modules::getInstance().configManagerModule.maiLiDingZiConfig;
 	auto& setConfig = Modules::getInstance().configManagerModule.setConfig;
-	qiXinShiJinDanXiangJiConfig.isDebug = false;
-	qiXinShiJinDanXiangJiConfig.isDefect = true;		// 默认开启剔废
-	qiXinShiJinDanXiangJiConfig.isshibiekuang = true;
-	qiXinShiJinDanXiangJiConfig.iswenzi = false;
+	maiLiDingZiConfig.isDebug = false;
+	maiLiDingZiConfig.isDefect = true;		// 默认开启剔废
 
-	ui->label_produceTotalValue->setText(QString::number(qiXinShiJinDanXiangJiConfig.totalProductionVolume));
-	ui->label_wasteProductsValue->setText(QString::number(qiXinShiJinDanXiangJiConfig.totalDefectiveVolume));
-	ui->rbtn_removeFunc->setChecked(qiXinShiJinDanXiangJiConfig.isDefect);
-	
-	ui->ckb_shibiekuang->setChecked(qiXinShiJinDanXiangJiConfig.isshibiekuang);
-	ui->ckb_wenzi->setChecked(qiXinShiJinDanXiangJiConfig.iswenzi);
+	ui->label_produceTotalValue->setText(QString::number(maiLiDingZiConfig.totalProductionVolume));
+	ui->label_wasteProductsValue->setText(QString::number(maiLiDingZiConfig.totalDefectiveVolume));
+	ui->rbtn_removeFunc->setChecked(maiLiDingZiConfig.isDefect);
 
 	rbtn_removeFunc_checked(true);
 
@@ -156,8 +147,6 @@ void MaiLiDingZi::changeLanguage(int index)
 		ui->label_produceTotal->setText("生产总量");
 		ui->label_wasteProducts->setText("废品总量");
 		ui->rbtn_debug->setText("调试模式");
-		ui->ckb_shibiekuang->setText("识别框");
-		ui->ckb_wenzi->setText("文字");
 		ui->rbtn_removeFunc->setText("剔除功能");
 		ui->pbtn_set->setText("设置");
 
@@ -181,8 +170,6 @@ void MaiLiDingZi::changeLanguage(int index)
 
 		// 模式/功能
 		ui->rbtn_debug->setText("Debug Mode");
-		ui->ckb_shibiekuang->setText("Box");
-		ui->ckb_wenzi->setText("Text");
 		ui->rbtn_removeFunc->setText("Reject Enable");
 
 		// 操作按钮
@@ -323,8 +310,6 @@ void MaiLiDingZi::rbtn_debug_checked(bool checked)
 		else {
 			runningState = RunningState::Stop;
 		}
-		ui->ckb_shibiekuang->setVisible(checked);
-		ui->ckb_wenzi->setVisible(checked);
 	}
 	else {
 		ui->rbtn_debug->setChecked(false);
@@ -345,8 +330,6 @@ void MaiLiDingZi::rbtn_removeFunc_checked(bool checked)
 			camera1->setFrameRate(50);
 		}
 		ui->rbtn_debug->setChecked(false);
-		ui->ckb_shibiekuang->setVisible(false);
-		ui->ckb_wenzi->setVisible(false);
 	}
 	else
 	{
@@ -354,28 +337,12 @@ void MaiLiDingZi::rbtn_removeFunc_checked(bool checked)
 	}
 }
 
-void MaiLiDingZi::ckb_shibiekuang_checked(bool checked)
-{
-	auto& qiXinShiJinDanXiangJiConfig = Modules::getInstance().configManagerModule.maiLiDingZiConfig;
-	qiXinShiJinDanXiangJiConfig.isshibiekuang = ui->ckb_shibiekuang->isChecked();
-
-	emit shibiekuangChanged();
-}
-
-void MaiLiDingZi::ckb_wenzi_checked(bool checked)
-{
-	auto& qiXinShiJinDanXiangJiConfig = Modules::getInstance().configManagerModule.maiLiDingZiConfig;
-	qiXinShiJinDanXiangJiConfig.iswenzi = ui->ckb_wenzi->isChecked();
-
-	emit wenziChanged();
-}
-
 void MaiLiDingZi::pbtn_resetProduct_clicked()
 {
-	auto& qiXinShiJinDanXiangJiConfig = Modules::getInstance().configManagerModule.maiLiDingZiConfig;
+	auto& maiLiDingZiConfig = Modules::getInstance().configManagerModule.maiLiDingZiConfig;
 
-	qiXinShiJinDanXiangJiConfig.totalProductionVolume = 0;
-	qiXinShiJinDanXiangJiConfig.totalDefectiveVolume = 0;
+	maiLiDingZiConfig.totalProductionVolume = 0;
+	maiLiDingZiConfig.totalDefectiveVolume = 0;
 
 	onUpdateStatisticalInfoUI();
 }

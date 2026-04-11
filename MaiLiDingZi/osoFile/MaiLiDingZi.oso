@@ -8,7 +8,6 @@ namespace cdm {
 		totalDefectiveVolume : int :default = 0;
 		isDebug : bool :default = false;
 		isDefect : bool :default = false;
-		isshibiekuang : bool :default = true;
-		iswenzi : bool :default = true;
+		isSaveImg : bool :default = false;
 	};
 }
