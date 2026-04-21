@@ -54,9 +54,6 @@ private slots:
 	void rbtn_removeFunc_checked(bool checked);
 	void pbtn_resetProduct_clicked();
 	void ckb_saveImg_checked(bool checked);
-signals:
-	void shibiekuangChanged();
-	void wenziChanged();
 private:
 	rw::rqw::ClickableLabel* clickableTitle = nullptr;
 	DlgCloseForm* _dlgCloseForm = nullptr;

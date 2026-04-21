@@ -120,10 +120,6 @@ void Modules::connect()
 	QObject::connect(imgProModule.imageProcessingModule2.get(), &ImageProcessingModule::imageReady,
 		uiModule._maiLiDingZi, &MaiLiDingZi::onCameraDisplay);
 
-	QObject::connect(uiModule._maiLiDingZi, &MaiLiDingZi::shibiekuangChanged,
-		&imgProModule, &ImgProModule::onUpdateImgProContext);
-	QObject::connect(uiModule._maiLiDingZi, &MaiLiDingZi::wenziChanged,
-		&imgProModule, &ImgProModule::onUpdateImgProContext);
 	QObject::connect(uiModule._dlgProductSet,&DlgProductSet::paramsChanged,
 		&imgProModule, &ImgProModule::onUpdateImgProContext);
 #pragma endregion
