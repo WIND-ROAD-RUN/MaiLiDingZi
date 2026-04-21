@@ -102,7 +102,7 @@ void MaiLiDingZi::ini_clickableTitle()
 	auto layoutTitle = ui->groupBox_head->layout();
 	layoutTitle->replaceWidget(ui->label_title, clickableTitle);
 	delete ui->label_title;
-	clickableTitle->setText("湿巾检测");
+	clickableTitle->setText("钉子检测");
 	clickableTitle->setStyleSheet("QLabel {font-size: 30px;font-weight: bold;color: rgb(255, 255, 255);padding: 5px 5px;border-bottom: 2px solid #cccccc;}");
 }
 
